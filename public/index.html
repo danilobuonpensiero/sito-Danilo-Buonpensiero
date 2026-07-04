@@ -458,6 +458,27 @@
 
   .contact-submit-wrap{ grid-column:1 / -1; text-align:center; margin-top:12px; }
 
+  .consent-row{ margin-top:4px; }
+  .consent-label{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-family:'Inter', sans-serif;
+    font-size:13px;
+    line-height:1.5;
+    color:var(--ink-60);
+    cursor:pointer;
+  }
+  .consent-label input[type="checkbox"]{
+    margin-top:3px;
+    width:15px;
+    height:15px;
+    accent-color:var(--ink);
+    flex-shrink:0;
+    cursor:pointer;
+  }
+  .consent-label a{ color:var(--ink); text-decoration:underline; }
+
   .btn-solid{
     display:inline-block;
     padding:16px 48px;
@@ -659,6 +680,12 @@
         <div class="field-full">
           <label for="c-message">Messaggio</label>
           <textarea id="c-message" placeholder="Raccontami il progetto&hellip;" required></textarea>
+        </div>
+        <div class="field-full consent-row">
+          <label class="consent-label" for="c-consent">
+            <input type="checkbox" id="c-consent" required>
+            <span>Ho letto e accetto l'<a href="/privacy.html" target="_blank" rel="noopener">informativa sulla privacy</a>.</span>
+          </label>
         </div>
         <div class="contact-submit-wrap">
           <button type="submit" class="btn-solid">INVIA MESSAGGIO</button>
