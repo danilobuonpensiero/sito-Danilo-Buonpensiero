@@ -571,6 +571,12 @@
     #site-header{ padding:0 24px; }
     #expertise, #contact{ padding-left:24px; padding-right:24px; }
   }
+
+  @media (prefers-reduced-motion: reduce){
+    #hero{ height:100vh; }
+    #hero-sticky{ position:relative; }
+    .overlay{ opacity:1 !important; }
+  }
 </style>
 </head>
 <body>
@@ -590,7 +596,7 @@
 
   <section id="hero">
     <div id="hero-sticky">
-      <canvas id="hero-canvas"></canvas>
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
       <div class="overlay" id="ov-brand" data-start="0">
         <h1 class="ov-main">DANILO BUONPENSIERO</h1>
@@ -718,6 +724,8 @@
     samplesPerSecond: 15
   };
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const loadingScreen = document.getElementById('loading-screen');
   const loadingFill = document.getElementById('loading-bar-fill');
   const heroCanvas = document.getElementById('hero-canvas');
@@ -775,6 +783,40 @@
       video.addEventListener('seeked', handler);
       video.currentTime = time;
     });
+  }
+
+  async function drawStaticFrame(){
+    const video = document.createElement('video');
+    video.src = CONFIG.videoSrc;
+    video.muted = true;
+    video.playsInline = true;
+    video.preload = 'auto';
+    video.style.position = 'fixed';
+    video.style.top = '0';
+    video.style.left = '0';
+    video.style.width = '2px';
+    video.style.height = '2px';
+    video.style.opacity = '0';
+    video.style.pointerEvents = 'none';
+    document.body.appendChild(video);
+
+    await new Promise((resolve, reject) => {
+      const guard = setTimeout(() => reject(new Error('video load timeout')), 6000);
+      video.addEventListener('loadedmetadata', () => { clearTimeout(guard); resolve(); }, { once:true });
+      video.addEventListener('error', () => { clearTimeout(guard); reject(new Error('video load error')); }, { once:true });
+    });
+
+    const duration = video.duration || 1;
+    await seekTo(video, Math.min(duration * 0.15, Math.max(duration - 0.05, 0)));
+
+    const cw = heroCanvas.width, ch = heroCanvas.height;
+    const scale = Math.max(cw / video.videoWidth, ch / video.videoHeight);
+    const dw = video.videoWidth * scale, dh = video.videoHeight * scale;
+    const dx = (cw - dw) / 2, dy = (ch - dh) / 2;
+    ctx.clearRect(0, 0, cw, ch);
+    ctx.drawImage(video, dx, dy, dw, dh);
+
+    video.remove();
   }
 
   async function extractFrames(){
@@ -850,6 +892,19 @@
   }
 
   function initScroll(){
+    function updatePageProgress(){
+      const doc = document.documentElement;
+      const scrollTop = window.scrollY || doc.scrollTop;
+      const scrollHeight = doc.scrollHeight - window.innerHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      scrollFill.style.height = pct + '%';
+    }
+
+    window.addEventListener('scroll', updatePageProgress, { passive:true });
+    updatePageProgress();
+
+    if(prefersReducedMotion) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.create({
@@ -864,22 +919,11 @@
         updateOverlays(progress * 100);
       }
     });
-
-    function updatePageProgress(){
-      const doc = document.documentElement;
-      const scrollTop = window.scrollY || doc.scrollTop;
-      const scrollHeight = doc.scrollHeight - window.innerHeight;
-      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-      scrollFill.style.height = pct + '%';
-    }
-
-    window.addEventListener('scroll', updatePageProgress, { passive:true });
-    updatePageProgress();
   }
 
   window.addEventListener('resize', () => {
     resizeCanvas();
-    ScrollTrigger.refresh();
+    if(!prefersReducedMotion) ScrollTrigger.refresh();
   });
 
   const contactForm = document.getElementById('contact-form');
@@ -940,6 +984,20 @@
 
   (async function init(){
     resizeCanvas();
+
+    if(prefersReducedMotion){
+      try{
+        await drawStaticFrame();
+      } catch(err){
+        console.error('Static frame draw failed:', err);
+        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg') || '#EDE4D3';
+        ctx.fillRect(0, 0, heroCanvas.width, heroCanvas.height);
+      }
+      initScroll();
+      dismissLoadingScreen();
+      return;
+    }
+
     try{
       await extractFrames();
     } catch(err){

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagina non trovata | Danilo Buonpensiero</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EDE4D3;
+    --ink:#0A0A0A;
+    --yellow:#FFE500;
+    --ink-60: rgba(10,10,10,0.6);
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html, body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+  .wrap{ padding:24px; }
+  .code{ font-family:'Cormorant Garamond', serif; font-size:120px; line-height:1; color:var(--ink); }
+  h1{ font-family:'Cormorant Garamond', serif; font-weight:500; font-size:32px; margin:12px 0 16px; }
+  p{ font-size:15px; color:var(--ink-60); margin-bottom:32px; }
+  .back{
+    display:inline-block;
+    padding:14px 36px;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    background:var(--yellow);
+    color:var(--ink);
+    text-decoration:none;
+    transition:opacity 0.25s ease;
+  }
+  .back:hover{ opacity:0.85; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="code">404</div>
+    <h1>Questa pagina non esiste.</h1>
+    <p>Il link seguito potrebbe essere errato o la pagina &egrave; stata spostata.</p>
+    <a class="back" href="/">TORNA ALLA HOME</a>
+  </div>
+</body>
+</html>
