@@ -227,7 +227,7 @@
 
   #ov-harmony{
     right:10%;
-    bottom:15%;
+    bottom:8%;
     max-width:44%;
     text-align:right;
   }
@@ -623,7 +623,7 @@
 
       <div class="contact-grid">
       <div class="contact-photo">
-        <img src="./danilo.jpg" alt="Danilo Buonpensiero">
+        <img src="./danilo.jpg" alt="Danilo Buonpensiero" onerror="this.parentElement.style.display='none';">
       </div>
 
       <form id="contact-form">
@@ -668,10 +668,10 @@
 (function(){
   const CONFIG = {
     videoSrc: './background-narrative.mp4',
-    maxFrameWidth: 960,
-    minFrames: 60,
-    maxFrames: 100,
-    samplesPerSecond: 15
+    maxFrameWidth: 720,
+    minFrames: 40,
+    maxFrames: 60,
+    samplesPerSecond: 10
   };
 
   const loadingScreen = document.getElementById('loading-screen');
@@ -725,7 +725,7 @@
         resolve();
       };
       const handler = () => finish();
-      const timer = setTimeout(finish, 300);
+      const timer = setTimeout(finish, 150);
       video.addEventListener('seeked', handler);
       video.currentTime = time;
     });
