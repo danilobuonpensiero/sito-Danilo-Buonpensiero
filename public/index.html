@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YOUR BRAND NAME</title>
+<title>DANILO BUONPENSIERO</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,19 +14,20 @@
 
 <style>
   :root{
-    --bg:#030303;
-    --amber:#F5A623;
-    --amber-dim: rgba(245,166,35,0.6);
-    --amber-faint: rgba(245,166,35,0.1);
-    --silver:#a9c1d9;
-    --white:#ffffff;
+    --bg:#EDE4D3;
+    --bg-soft:#F5EFE3;
+    --ink:#0A0A0A;
+    --yellow:#FFE500;
+    --green:#6FBF73;
+    --ink-60: rgba(10,10,10,0.6);
+    --ink-40: rgba(10,10,10,0.4);
   }
 
   *{ margin:0; padding:0; box-sizing:border-box; }
 
   html, body{
     background:var(--bg);
-    color:var(--white);
+    color:var(--ink);
     font-family:'Inter', sans-serif;
     width:100%;
   }
@@ -37,7 +38,7 @@
   #loading-screen{
     position:fixed;
     inset:0;
-    background:#030303;
+    background:var(--bg);
     z-index:500;
     display:flex;
     flex-direction:column;
@@ -49,22 +50,24 @@
     font-family:'Cormorant Garamond', serif;
     font-size:48px;
     font-weight:500;
-    color:var(--amber);
+    color:var(--ink);
     letter-spacing:2px;
     margin-bottom:32px;
+    text-align:center;
+    padding:0 24px;
   }
 
   #loading-bar-track{
     width:200px;
     height:2px;
-    background:rgba(245,166,35,0.15);
+    background:rgba(10,10,10,0.12);
     overflow:hidden;
   }
 
   #loading-bar-fill{
     width:0%;
     height:100%;
-    background:var(--amber);
+    background:var(--ink);
     transition:width 0.15s ease-out;
   }
 
@@ -72,7 +75,7 @@
     margin-top:18px;
     font-family:'Inter', sans-serif;
     font-size:12px;
-    color:var(--amber);
+    color:var(--ink);
     opacity:0.5;
     letter-spacing:0.5px;
   }
@@ -96,17 +99,19 @@
     font-size:18px;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:var(--amber);
+    color:var(--ink);
   }
 
-  #site-header .shop{
+  #site-header .nav-contact{
     font-family:'Inter', sans-serif;
     font-size:11px;
     text-transform:uppercase;
     letter-spacing:1.5px;
-    color:rgba(255,255,255,0.6);
+    color:var(--ink-60);
     cursor:pointer;
+    transition:color 0.25s ease;
   }
+  #site-header .nav-contact:hover{ color:var(--ink); }
 
   /* ---------- SCROLL PROGRESS BAR ---------- */
   #scroll-progress-track{
@@ -114,7 +119,7 @@
     top:0; right:0;
     width:2px;
     height:100vh;
-    background:rgba(245,166,35,0.1);
+    background:rgba(10,10,10,0.1);
     z-index:200;
   }
 
@@ -123,7 +128,7 @@
     top:0; left:0;
     width:100%;
     height:0%;
-    background:rgba(245,166,35,0.8);
+    background:rgba(10,10,10,0.8);
   }
 
   /* ---------- HERO / SCROLL VIDEO ---------- */
@@ -131,7 +136,7 @@
     position:relative;
     height:400vh;
     width:100%;
-    background:#030303;
+    background:var(--bg);
   }
 
   #hero-sticky{
@@ -146,7 +151,7 @@
     display:block;
     width:100vw;
     height:100vh;
-    background:#030303;
+    background:var(--bg);
   }
 
   .overlay{
@@ -161,10 +166,10 @@
     font-family:'Cormorant Garamond', serif;
     font-weight:500;
     font-size:64px;
-    color:var(--white);
-    opacity:0.9;
+    color:var(--ink);
+    opacity:0.95;
     line-height:1.1;
-    text-shadow:0 4px 24px rgba(0,0,0,0.8);
+    text-shadow:0 2px 12px rgba(237,228,211,0.6);
   }
 
   .ov-sub{
@@ -172,9 +177,21 @@
     font-weight:400;
     font-style:italic;
     font-size:24px;
-    color:var(--amber);
+    color:var(--ink);
+    opacity:0.7;
     margin-top:8px;
-    text-shadow:0 4px 24px rgba(0,0,0,0.8);
+    text-shadow:0 2px 12px rgba(237,228,211,0.6);
+  }
+
+  .ov-roles{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:400;
+    font-style:italic;
+    font-size:24px;
+    color:var(--ink);
+    opacity:0.7;
+    margin-top:2px;
+    text-shadow:0 2px 12px rgba(237,228,211,0.6);
   }
 
   #ov-brand{
@@ -185,20 +202,20 @@
   }
 
   #ov-story{
-    left:15%;
+    left:10%;
     bottom:15%;
-    max-width:40%;
+    max-width:44%;
   }
 
   #ov-values{
-    right:15%;
-    top:40%;
-    max-width:40%;
+    right:10%;
+    top:38%;
+    max-width:44%;
     text-align:right;
   }
 
   #ov-stack{
-    left:15%;
+    left:10%;
     top:50%;
     transform:translateY(-50%);
   }
@@ -209,16 +226,16 @@
   }
 
   #ov-harmony{
-    right:15%;
+    right:10%;
     bottom:15%;
-    max-width:40%;
+    max-width:44%;
     text-align:right;
   }
 
-  /* ---------- PRODUCT SECTION ---------- */
-  #products{
+  /* ---------- EXPERTISE SECTION ---------- */
+  #expertise{
     position:relative;
-    background:#030303;
+    background:var(--bg);
     padding:140px 60px;
     z-index:1;
   }
@@ -228,7 +245,7 @@
     font-size:11px;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:var(--amber);
+    color:var(--ink-60);
     text-align:center;
     margin-bottom:20px;
   }
@@ -237,7 +254,7 @@
     font-family:'Cormorant Garamond', serif;
     font-size:48px;
     font-weight:500;
-    color:var(--white);
+    color:var(--ink);
     text-align:center;
     margin-bottom:80px;
   }
@@ -252,20 +269,19 @@
 
   .card{
     position:relative;
-    background:#0a0a0a;
-    border:1px solid #1a1a1a;
+    background:var(--bg-soft);
+    border:1px solid var(--ink);
     padding:48px;
-    transition:border-color 0.4s ease, box-shadow 0.4s ease;
+    transition:box-shadow 0.4s ease, transform 0.4s ease;
   }
 
-  .card.accent-amber:hover{
-    border-color:rgba(245,166,35,0.5);
-    box-shadow:0 0 40px rgba(245,166,35,0.08);
+  .card.accent-yellow:hover{
+    box-shadow:0 0 0 2px var(--yellow) inset;
+    transform:translateY(-4px);
   }
-
-  .card.accent-silver:hover{
-    border-color:rgba(169,193,217,0.5);
-    box-shadow:0 0 40px rgba(169,193,217,0.08);
+  .card.accent-green:hover{
+    box-shadow:0 0 0 2px var(--green) inset;
+    transform:translateY(-4px);
   }
 
   .badge{
@@ -275,27 +291,25 @@
     font-family:'Inter', sans-serif;
     font-size:10px;
     letter-spacing:1.5px;
-    color:#030303;
-    background:var(--amber);
+    color:var(--ink);
+    background:var(--yellow);
     padding:5px 10px;
   }
 
   .card-title{
     font-family:'Cormorant Garamond', serif;
-    font-size:36px;
+    font-size:32px;
     font-weight:500;
     margin-bottom:8px;
+    color:var(--ink);
   }
-
-  .card.accent-amber .card-title{ color:var(--amber); }
-  .card.accent-silver .card-title{ color:var(--silver); }
 
   .card-subtitle{
     font-family:'Inter', sans-serif;
     font-size:11px;
     text-transform:uppercase;
     letter-spacing:1.5px;
-    color:rgba(255,255,255,0.5);
+    color:var(--ink-60);
     margin-bottom:24px;
   }
 
@@ -303,157 +317,235 @@
     font-family:'Inter', sans-serif;
     font-size:14px;
     line-height:1.6;
-    color:rgba(255,255,255,0.65);
+    color:rgba(10,10,10,0.75);
     margin-bottom:24px;
   }
 
-  .card-ingredients{
+  .card-services{
     font-family:'Inter', sans-serif;
     font-size:14px;
     font-style:italic;
-    color:rgba(255,255,255,0.4);
-    margin-bottom:32px;
+    color:var(--ink-60);
+    margin-bottom:0;
   }
 
-  .card-price{
-    font-family:'Cormorant Garamond', serif;
-    font-size:24px;
-    color:var(--white);
-    margin-bottom:32px;
+  .card-accent-line{
+    width:40px;
+    height:3px;
+    margin-bottom:28px;
+  }
+  .accent-yellow .card-accent-line{ background:var(--yellow); }
+  .accent-green .card-accent-line{ background:var(--green); }
+
+  /* ---------- CONTACT SECTION ---------- */
+  #contact{
+    background:var(--ink);
+    color:var(--bg);
+    padding:140px 60px 120px;
   }
 
-  .btn-outline{
-    display:inline-block;
-    width:100%;
-    text-align:center;
-    padding:14px 0;
-    font-family:'Inter', sans-serif;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    background:transparent;
-    cursor:pointer;
-    transition:background 0.3s ease, color 0.3s ease;
-  }
-
-  .card.accent-amber .btn-outline{
-    border:1px solid var(--amber);
-    color:var(--amber);
-  }
-  .card.accent-amber .btn-outline:hover{
-    background:var(--amber);
-    color:#030303;
-  }
-
-  .card.accent-silver .btn-outline{
-    border:1px solid var(--silver);
-    color:var(--silver);
-  }
-  .card.accent-silver .btn-outline:hover{
-    background:var(--silver);
-    color:#030303;
-  }
-
-  /* ---------- FOOTER ---------- */
-  #site-footer{
-    background:#000000;
-    padding:140px 60px 60px;
-  }
-
-  .footer-inner{
-    max-width:800px;
+  .contact-inner{
+    max-width:900px;
     margin:0 auto;
     text-align:center;
   }
 
-  .footer-title{
+  .contact-eyebrow{
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:var(--yellow);
+    margin-bottom:20px;
+  }
+
+  .contact-title{
     font-family:'Cormorant Garamond', serif;
-    font-size:48px;
+    font-size:56px;
     font-weight:500;
-    color:var(--white);
+    color:var(--bg);
     margin-bottom:16px;
   }
 
-  .footer-subtext{
+  .contact-subtext{
     font-family:'Inter', sans-serif;
-    font-size:14px;
-    color:rgba(255,255,255,0.5);
-    margin-bottom:48px;
+    font-size:15px;
+    line-height:1.6;
+    color:rgba(237,228,211,0.6);
+    margin-bottom:56px;
+    max-width:520px;
+    margin-left:auto;
+    margin-right:auto;
   }
 
-  #subscribe-form{
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    gap:24px;
-    max-width:480px;
-    margin:0 auto 100px;
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.8fr 1.2fr;
+    gap:56px;
+    align-items:center;
+    max-width:900px;
+    margin:0 auto;
+    text-align:left;
   }
 
-  #subscribe-form input{
-    flex:1;
+  .contact-photo img{
+    width:100%;
+    aspect-ratio:4 / 5;
+    object-fit:cover;
+    display:block;
+    filter:grayscale(100%);
+    transition:filter 0.5s ease;
+  }
+  .contact-photo img:hover{ filter:grayscale(0%); }
+
+  #contact-form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px 40px;
+    text-align:left;
+  }
+
+  .field-full{ grid-column:1 / -1; }
+
+  #contact-form label{
+    display:block;
+    font-family:'Inter', sans-serif;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:rgba(237,228,211,0.5);
+    margin-bottom:8px;
+  }
+
+  #contact-form input,
+  #contact-form textarea{
+    width:100%;
     background:transparent;
     border:none;
-    border-bottom:1px solid rgba(255,255,255,0.3);
-    color:var(--white);
+    border-bottom:1px solid rgba(237,228,211,0.25);
+    color:var(--bg);
     font-family:'Inter', sans-serif;
-    font-size:14px;
-    padding:10px 4px;
+    font-size:15px;
+    padding:8px 2px;
     outline:none;
+    transition:border-color 0.25s ease;
+    resize:none;
   }
+  #contact-form textarea{ min-height:70px; }
 
-  #subscribe-form input::placeholder{ color:rgba(255,255,255,0.35); }
+  #contact-form input:focus,
+  #contact-form textarea:focus{ border-bottom-color:var(--yellow); }
 
-  #subscribe-form input:focus{ border-bottom-color:var(--amber); }
+  #contact-form input::placeholder,
+  #contact-form textarea::placeholder{ color:rgba(237,228,211,0.3); }
 
-  #subscribe-form button{
-    background:none;
-    border:none;
-    color:var(--amber);
+  .contact-submit-wrap{ grid-column:1 / -1; text-align:center; margin-top:12px; }
+
+  .btn-solid{
+    display:inline-block;
+    padding:16px 48px;
     font-family:'Inter', sans-serif;
     font-size:11px;
     text-transform:uppercase;
     letter-spacing:1.5px;
-    padding:10px 0;
+    background:var(--yellow);
+    color:var(--ink);
+    border:none;
     cursor:pointer;
-    white-space:nowrap;
+    transition:opacity 0.25s ease;
+  }
+  .btn-solid:hover{ opacity:0.85; }
+
+  /* ---------- BOOKING BLOCK ---------- */
+  .booking-divider{
+    max-width:640px;
+    margin:80px auto 0;
+    border-top:1px solid rgba(237,228,211,0.15);
+    padding-top:72px;
+  }
+
+  .booking-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:36px;
+    font-weight:500;
+    color:var(--bg);
+    margin-bottom:12px;
+  }
+
+  .booking-subtext{
+    font-family:'Inter', sans-serif;
+    font-size:14px;
+    color:rgba(237,228,211,0.55);
+    margin-bottom:36px;
+  }
+
+  .btn-outline-light{
+    display:inline-block;
+    padding:16px 48px;
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    background:transparent;
+    color:var(--bg);
+    border:1px solid rgba(237,228,211,0.4);
+    cursor:pointer;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+  .btn-outline-light:hover{
+    background:var(--bg);
+    color:var(--ink);
+  }
+
+  /* ---------- FOOTER ---------- */
+  #site-footer{
+    background:var(--ink);
+    padding:0 60px 56px;
   }
 
   .footer-links{
     display:flex;
     justify-content:center;
     gap:40px;
-    padding-top:32px;
-    border-top:1px solid #1a1a1a;
+    max-width:900px;
+    margin:0 auto;
+    padding-top:40px;
+    border-top:1px solid rgba(237,228,211,0.12);
     font-family:'Inter', sans-serif;
     font-size:11px;
     text-transform:uppercase;
     letter-spacing:1px;
-    color:rgba(255,255,255,0.4);
+    color:rgba(237,228,211,0.45);
+    flex-wrap:wrap;
   }
-
-  .footer-links a:hover{ color:var(--amber); }
+  .footer-links a{ transition:color 0.25s ease; }
+  .footer-links a:hover{ color:var(--yellow); }
 
   @media (max-width:900px){
     .card-grid{ grid-template-columns:1fr; }
+    .contact-grid{ grid-template-columns:1fr; gap:40px; }
+    .contact-photo{ max-width:280px; margin:0 auto; }
+    #contact-form{ grid-template-columns:1fr; }
     .ov-main{ font-size:40px; }
     .ov-sub{ font-size:18px; }
-    #ov-story, #ov-values, #ov-harmony{ max-width:70%; }
-    #subscribe-form{ flex-direction:column; align-items:stretch; }
+    .contact-title{ font-size:40px; }
+    #ov-story, #ov-values, #ov-harmony{ max-width:80%; }
+    #site-header{ padding:0 24px; }
+    #expertise, #contact{ padding-left:24px; padding-right:24px; }
   }
 </style>
 </head>
 <body>
 
   <div id="loading-screen">
-    <div id="loading-brand">YOUR BRAND NAME</div>
+    <div id="loading-brand">DANILO BUONPENSIERO</div>
     <div id="loading-bar-track"><div id="loading-bar-fill"></div></div>
-    <div id="loading-text">Crafting your experience&hellip;</div>
+    <div id="loading-text">Sto preparando la narrazione&hellip;</div>
   </div>
 
   <header id="site-header">
-    <div class="brand">YOUR BRAND NAME</div>
-    <div class="shop">SHOP</div>
+    <div class="brand">DANILO BUONPENSIERO</div>
+    <a class="nav-contact" href="#contact">CONTATTI</a>
   </header>
 
   <div id="scroll-progress-track"><div id="scroll-progress-fill"></div></div>
@@ -463,82 +555,112 @@
       <canvas id="hero-canvas"></canvas>
 
       <div class="overlay" id="ov-brand" data-start="0">
-        <h1 class="ov-main">YOUR BRAND NAME</h1>
+        <h1 class="ov-main">DANILO BUONPENSIERO</h1>
+        <p class="ov-roles" style="margin-top:12px;">Communication &amp; PR Specialist</p>
+        <p class="ov-roles">Content Editor</p>
+        <p class="ov-roles">Social Media Manager</p>
       </div>
 
       <div class="overlay" id="ov-story" data-start="15">
-        <h2 class="ov-main">A unique story.</h2>
-        <p class="ov-sub">Timeless elegance.</p>
+        <h2 class="ov-main">Comunicazione sportiva.</h2>
+        <p class="ov-sub">Dove il racconto incontra la strategia.</p>
       </div>
 
       <div class="overlay" id="ov-values" data-start="30">
-        <h2 class="ov-main">Six core values.</h2>
-        <p class="ov-sub">Decades of passion.</p>
+        <h2 class="ov-main">Social, PR, contenuti.</h2>
+        <p class="ov-sub">Marketing, territorio, eventi.</p>
       </div>
 
       <div id="ov-stack">
-        <h2 class="overlay ov-main" data-start="55">Discover.</h2>
-        <h2 class="overlay ov-main" data-start="60">Explore.</h2>
-        <h2 class="overlay ov-main" data-start="64">Experience.</h2>
+        <h2 class="overlay ov-main" data-start="55">Ascoltare.</h2>
+        <h2 class="overlay ov-main" data-start="60">Costruire.</h2>
+        <h2 class="overlay ov-main" data-start="64">Amplificare.</h2>
       </div>
 
       <div class="overlay" id="ov-harmony" data-start="85">
-        <h2 class="ov-main">Harmony.</h2>
-        <p class="ov-sub">Crafted with care.</p>
+        <h2 class="ov-main">Lo sport come territorio.</h2>
+        <p class="ov-sub">Comunicazione ambientale, una legacy per il futuro.</p>
       </div>
     </div>
   </section>
 
-  <section id="products">
-    <div class="section-eyebrow">OUR COLLECTION</div>
-    <div class="section-title">Find your perfect match.</div>
+  <section id="expertise">
+    <div class="section-eyebrow">COMPETENZE</div>
+    <div class="section-title">Dove porto valore.</div>
 
     <div class="card-grid">
-      <div class="card accent-amber">
-        <div class="card-title">PRODUCT A</div>
-        <div class="card-subtitle">The Essential Ritual</div>
-        <p class="card-description">A quiet, considered formula built for everyday devotion. Light, radiant, endlessly wearable.</p>
-        <p class="card-ingredients">Bergamot &middot; White Musk &middot; Cedarwood</p>
-        <div class="card-price">$68</div>
-        <button class="btn-outline">ADD TO CART</button>
+      <div class="card accent-yellow">
+        <div class="card-accent-line"></div>
+        <div class="card-title">Media &amp; PR</div>
+        <div class="card-subtitle">Ufficio stampa &middot; Relazioni</div>
+        <p class="card-description">Gestione dell&rsquo;ufficio stampa, media strategy e comunicazione corporate. Direzione editoriale su circuiti sportivi multipiattaforma.</p>
+        <p class="card-services">Comunicati stampa &middot; Media relations &middot; Editorial direction</p>
       </div>
 
-      <div class="card accent-amber">
-        <span class="badge">BESTSELLER</span>
-        <div class="card-title">PRODUCT B</div>
-        <div class="card-subtitle">The Signature Edition</div>
-        <p class="card-description">Our most beloved composition &mdash; warm, rich, and unmistakably ours. A house favorite since day one.</p>
-        <p class="card-ingredients">Amber &middot; Tonka Bean &middot; Sandalwood</p>
-        <div class="card-price">$92</div>
-        <button class="btn-outline">ADD TO CART</button>
+      <div class="card accent-yellow">
+        <div class="card-accent-line"></div>
+        <div class="card-title">Digital &amp; Content</div>
+        <div class="card-subtitle">Social media &middot; Editoria</div>
+        <p class="card-description">Strategia social, community building e storytelling per audience sportive. Content editing e produzione editoriale su pi&ugrave; canali.</p>
+        <p class="card-services">Social strategy &middot; Community &middot; Content editing</p>
       </div>
 
-      <div class="card accent-silver">
-        <div class="card-title">PRODUCT C</div>
-        <div class="card-subtitle">The Modern Reserve</div>
-        <p class="card-description">Cool, precise, and quietly confident. Designed for those who prefer restraint over noise.</p>
-        <p class="card-ingredients">Bergamot &middot; Silver Birch &middot; Vetiver</p>
-        <div class="card-price">$104</div>
-        <button class="btn-outline">ADD TO CART</button>
+      <div class="card accent-green">
+        <div class="card-accent-line"></div>
+        <div class="card-title">Marketing &amp; Territorio</div>
+        <div class="card-subtitle">Sport business &middot; Sostenibilit&agrave;</div>
+        <p class="card-description">Sport marketing, turismo sportivo e comunicazione della sostenibilit&agrave;. Territorial branding per club, federazioni e destinazioni.</p>
+        <p class="card-services">Sport marketing &middot; Sport tourism &middot; Sustainability</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-eyebrow">CONTATTI</div>
+      <div class="contact-title">Parliamone.</div>
+      <p class="contact-subtext">Per collaborazioni, progetti editoriali e opportunit&agrave; nel settore sport business, comunicazione e sostenibilit&agrave;.</p>
+
+      <div class="contact-grid">
+      <div class="contact-photo">
+        <img src="./danilo.jpg" alt="Danilo Buonpensiero">
+      </div>
+
+      <form id="contact-form">
+        <div>
+          <label for="c-name">Nome</label>
+          <input type="text" id="c-name" placeholder="Il tuo nome" required>
+        </div>
+        <div>
+          <label for="c-org">Azienda / Organizzazione</label>
+          <input type="text" id="c-org" placeholder="Club, federazione, agenzia&hellip;">
+        </div>
+        <div class="field-full">
+          <label for="c-email">Email</label>
+          <input type="email" id="c-email" placeholder="La tua email" required>
+        </div>
+        <div class="field-full">
+          <label for="c-message">Messaggio</label>
+          <textarea id="c-message" placeholder="Raccontami il progetto&hellip;" required></textarea>
+        </div>
+        <div class="contact-submit-wrap">
+          <button type="submit" class="btn-solid">INVIA MESSAGGIO</button>
+        </div>
+      </form>
+      </div>
+
+      <div class="booking-divider">
+        <div class="booking-title">Fissa un appuntamento.</div>
+        <p class="booking-subtext">Preferisci parlarne di persona? Prenota una call conoscitiva.</p>
+        <a href="https://calendly.com/dbuonpensiero/30min" id="booking-link" class="btn-outline-light" target="_blank" rel="noopener">PRENOTA UNA CALL</a>
       </div>
     </div>
   </section>
 
   <footer id="site-footer">
-    <div class="footer-inner">
-      <div class="footer-title">Join our community.</div>
-      <p class="footer-subtext">Stay updated. No spam. Only quality.</p>
-
-      <form id="subscribe-form">
-        <input type="email" placeholder="Your email address" required>
-        <button type="submit">SUBSCRIBE &#8594;</button>
-      </form>
-
-      <div class="footer-links">
-        <a href="#">Social Media</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/danilo-buonpensiero/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:dbuonpensiero@gmail.com">Email</a>
     </div>
   </footer>
 
@@ -554,7 +676,6 @@
 
   const loadingScreen = document.getElementById('loading-screen');
   const loadingFill = document.getElementById('loading-bar-fill');
-  const loadingText = document.getElementById('loading-text');
   const heroCanvas = document.getElementById('hero-canvas');
   const ctx = heroCanvas.getContext('2d');
   const scrollFill = document.getElementById('scroll-progress-fill');
@@ -604,8 +725,6 @@
         resolve();
       };
       const handler = () => finish();
-      // Fallback: if currentTime is already at (or very near) the target,
-      // some browsers never fire 'seeked' - don't let that hang the loop.
       const timer = setTimeout(finish, 300);
       video.addEventListener('seeked', handler);
       video.currentTime = time;
@@ -619,8 +738,6 @@
     video.playsInline = true;
     video.preload = 'auto';
     video.setAttribute('webkit-playsinline', '');
-    // Must be attached to the DOM (kept visually hidden) - detached video
-    // elements get stuck decoding frame 0 in Safari/Chrome regardless of seeking.
     video.style.position = 'fixed';
     video.style.top = '0';
     video.style.left = '0';
@@ -635,13 +752,11 @@
       video.addEventListener('error', () => reject(new Error('video load error')), { once:true });
     });
 
-    // Kick the decoder pipeline with a play/pause cycle so subsequent seeks
-    // actually render the requested frame instead of repeating frame 0.
     try{
       await video.play();
       video.pause();
       video.currentTime = 0;
-    } catch(e){ /* autoplay restrictions - safe to ignore, muted+attached still works */ }
+    } catch(e){ /* autoplay restrictions - safe to ignore */ }
 
     const duration = video.duration || 1;
     const aspect = (video.videoWidth || 16) / (video.videoHeight || 9);
@@ -720,14 +835,30 @@
     ScrollTrigger.refresh();
   });
 
-  const subscribeForm = document.getElementById('subscribe-form');
-  subscribeForm.addEventListener('submit', (e) => {
+  const contactForm = document.getElementById('contact-form');
+  contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const btn = subscribeForm.querySelector('button');
+    const name = document.getElementById('c-name').value.trim();
+    const org = document.getElementById('c-org').value.trim();
+    const email = document.getElementById('c-email').value.trim();
+    const message = document.getElementById('c-message').value.trim();
+
+    const subject = encodeURIComponent('Contatto dal sito' + (name ? ' \u2013 ' + name : ''));
+    const bodyLines = [
+      'Nome: ' + name,
+      org ? 'Azienda / Organizzazione: ' + org : null,
+      'Email: ' + email,
+      '',
+      message
+    ].filter(l => l !== null);
+    const body = encodeURIComponent(bodyLines.join('\n'));
+
+    window.location.href = 'mailto:dbuonpensiero@gmail.com?subject=' + subject + '&body=' + body;
+
+    const btn = contactForm.querySelector('button[type="submit"]');
     const original = btn.textContent;
-    btn.textContent = 'THANK YOU';
-    subscribeForm.querySelector('input').value = '';
-    setTimeout(() => { btn.textContent = original; }, 2500);
+    btn.textContent = 'APERTURA MAIL\u2026';
+    setTimeout(() => { btn.textContent = original; }, 2600);
   });
 
   (async function init(){
