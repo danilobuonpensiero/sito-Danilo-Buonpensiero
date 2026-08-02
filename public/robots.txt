@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /privacy.html
 
-Sitemap: https://danilo-buonpensiero.vercel.app/sitemap.xml
+Sitemap: https://www.danilobuonpensiero.com/sitemap.xml
