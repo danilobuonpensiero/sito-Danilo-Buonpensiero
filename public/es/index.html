@@ -1003,46 +1003,64 @@
 
     // Decodificar de forma secuencial mientras se reproduce es mucho más
     // rápido que buscar cada fotograma por separado (cada búsqueda obliga al
-    // decodificador a volver al keyframe más cercano), así que reproducimos
-    // rápido y capturamos fotogramas a medida que llegan.
-    await new Promise((resolve) => {
-      const guard = setTimeout(resolve, 15000);
+    // decodificador a volver al keyframe más cercano), así que intentamos
+    // reproducir rápido y capturar fotogramas a medida que llegan. Si no se
+    // capturan todos (algunos navegadores/hardware no sostienen una
+    // reproducción rápida en una fuente 4K), recurrimos al método de
+    // búsqueda, fiable, para lo que falte.
+    try{
+      await new Promise((resolve) => {
+        const guard = setTimeout(resolve, 6000);
 
-      function finishIfDone(){
-        if(nextIndex >= targetTimes.length){
+        function finishIfDone(){
+          if(nextIndex >= targetTimes.length){
+            clearTimeout(guard);
+            resolve();
+          }
+        }
+
+        if(typeof video.requestVideoFrameCallback === 'function'){
+          const onFrame = (now, metadata) => {
+            captureDueFrames(metadata.mediaTime);
+            finishIfDone();
+            if(nextIndex < targetTimes.length) video.requestVideoFrameCallback(onFrame);
+          };
+          video.requestVideoFrameCallback(onFrame);
+        } else {
+          video.addEventListener('timeupdate', () => {
+            captureDueFrames(video.currentTime);
+            finishIfDone();
+          });
+        }
+
+        video.addEventListener('ended', () => {
+          captureDueFrames(duration);
           clearTimeout(guard);
           resolve();
-        }
+        }, { once:true });
+
+        video.playbackRate = 4;
+        video.play().catch(() => resolve());
+      });
+    } catch(e){ /* el camino rápido falló - el respaldo de abajo lo cubre */ }
+
+    video.pause();
+
+    if(nextIndex < targetTimes.length){
+      for(let i = nextIndex; i < targetTimes.length; i++){
+        const t = targetTimes[i];
+        await seekTo(video, Math.min(t, Math.max(duration - 0.05, 0)));
+        offCtx.drawImage(video, 0, 0, frameW, frameH);
+        const idx = i;
+        const bitmap = await createImageBitmap(off);
+        frames[idx] = bitmap;
+        loadingFill.style.width = Math.round(((idx + 1) / frameCount) * 100) + '%';
       }
-
-      if(typeof video.requestVideoFrameCallback === 'function'){
-        const onFrame = (now, metadata) => {
-          captureDueFrames(metadata.mediaTime);
-          finishIfDone();
-          if(nextIndex < targetTimes.length) video.requestVideoFrameCallback(onFrame);
-        };
-        video.requestVideoFrameCallback(onFrame);
-      } else {
-        video.addEventListener('timeupdate', () => {
-          captureDueFrames(video.currentTime);
-          finishIfDone();
-        });
-      }
-
-      video.addEventListener('ended', () => {
-        captureDueFrames(duration);
-        clearTimeout(guard);
-        resolve();
-      }, { once:true });
-
-      video.playbackRate = 8;
-      video.play().catch(resolve);
-    });
+    }
 
     await Promise.all(pending);
     frames = frames.filter(Boolean);
 
-    video.pause();
     video.remove();
   }
 

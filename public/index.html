@@ -1003,45 +1003,63 @@
 
     // Decoding sequentially while playing is far faster than seeking to each
     // frame individually (seeking forces the decoder back to the nearest
-    // keyframe every time), so we play back fast and sample frames as they arrive.
-    await new Promise((resolve) => {
-      const guard = setTimeout(resolve, 15000);
+    // keyframe every time), so we try playing back fast and sampling frames
+    // as they arrive. If that doesn't manage to capture everything (some
+    // browsers/hardware won't sustain a fast playback rate on a 4K source),
+    // fall back to the reliable seek-based method for whatever is missing.
+    try{
+      await new Promise((resolve) => {
+        const guard = setTimeout(resolve, 6000);
 
-      function finishIfDone(){
-        if(nextIndex >= targetTimes.length){
+        function finishIfDone(){
+          if(nextIndex >= targetTimes.length){
+            clearTimeout(guard);
+            resolve();
+          }
+        }
+
+        if(typeof video.requestVideoFrameCallback === 'function'){
+          const onFrame = (now, metadata) => {
+            captureDueFrames(metadata.mediaTime);
+            finishIfDone();
+            if(nextIndex < targetTimes.length) video.requestVideoFrameCallback(onFrame);
+          };
+          video.requestVideoFrameCallback(onFrame);
+        } else {
+          video.addEventListener('timeupdate', () => {
+            captureDueFrames(video.currentTime);
+            finishIfDone();
+          });
+        }
+
+        video.addEventListener('ended', () => {
+          captureDueFrames(duration);
           clearTimeout(guard);
           resolve();
-        }
+        }, { once:true });
+
+        video.playbackRate = 4;
+        video.play().catch(() => resolve());
+      });
+    } catch(e){ /* fast path failed - the seek fallback below covers it */ }
+
+    video.pause();
+
+    if(nextIndex < targetTimes.length){
+      for(let i = nextIndex; i < targetTimes.length; i++){
+        const t = targetTimes[i];
+        await seekTo(video, Math.min(t, Math.max(duration - 0.05, 0)));
+        offCtx.drawImage(video, 0, 0, frameW, frameH);
+        const idx = i;
+        const bitmap = await createImageBitmap(off);
+        frames[idx] = bitmap;
+        loadingFill.style.width = Math.round(((idx + 1) / frameCount) * 100) + '%';
       }
-
-      if(typeof video.requestVideoFrameCallback === 'function'){
-        const onFrame = (now, metadata) => {
-          captureDueFrames(metadata.mediaTime);
-          finishIfDone();
-          if(nextIndex < targetTimes.length) video.requestVideoFrameCallback(onFrame);
-        };
-        video.requestVideoFrameCallback(onFrame);
-      } else {
-        video.addEventListener('timeupdate', () => {
-          captureDueFrames(video.currentTime);
-          finishIfDone();
-        });
-      }
-
-      video.addEventListener('ended', () => {
-        captureDueFrames(duration);
-        clearTimeout(guard);
-        resolve();
-      }, { once:true });
-
-      video.playbackRate = 8;
-      video.play().catch(resolve);
-    });
+    }
 
     await Promise.all(pending);
     frames = frames.filter(Boolean);
 
-    video.pause();
     video.remove();
   }
 
