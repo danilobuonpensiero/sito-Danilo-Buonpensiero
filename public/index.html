@@ -968,12 +968,6 @@
       video.addEventListener('error', () => { clearTimeout(guard); reject(new Error('video load error')); }, { once:true });
     });
 
-    try{
-      await video.play();
-      video.pause();
-      video.currentTime = 0;
-    } catch(e){ /* autoplay restrictions - safe to ignore */ }
-
     const duration = video.duration || 1;
     const aspect = (video.videoWidth || 16) / (video.videoHeight || 9);
     const frameW = Math.min(CONFIG.maxFrameWidth, video.videoWidth || CONFIG.maxFrameWidth);
@@ -988,17 +982,66 @@
     off.height = frameH;
     const offCtx = off.getContext('2d');
 
+    const targetTimes = [];
     for(let i = 0; i < frameCount; i++){
-      const t = frameCount > 1 ? (i / (frameCount - 1)) * duration : 0;
-      await seekTo(video, Math.min(t, Math.max(duration - 0.05, 0)));
-      offCtx.drawImage(video, 0, 0, frameW, frameH);
-      const bitmap = await createImageBitmap(off);
-      frames.push(bitmap);
-
-      const pct = Math.round(((i + 1) / frameCount) * 100);
-      loadingFill.style.width = pct + '%';
+      targetTimes.push(frameCount > 1 ? (i / (frameCount - 1)) * duration : 0);
     }
 
+    frames = new Array(frameCount);
+    const pending = [];
+    let nextIndex = 0;
+
+    function captureDueFrames(mediaTime){
+      while(nextIndex < targetTimes.length && mediaTime >= targetTimes[nextIndex] - 0.02){
+        offCtx.drawImage(video, 0, 0, frameW, frameH);
+        const idx = nextIndex;
+        pending.push(createImageBitmap(off).then((bmp) => { frames[idx] = bmp; }));
+        nextIndex++;
+        loadingFill.style.width = Math.round((nextIndex / frameCount) * 100) + '%';
+      }
+    }
+
+    // Decoding sequentially while playing is far faster than seeking to each
+    // frame individually (seeking forces the decoder back to the nearest
+    // keyframe every time), so we play back fast and sample frames as they arrive.
+    await new Promise((resolve) => {
+      const guard = setTimeout(resolve, 15000);
+
+      function finishIfDone(){
+        if(nextIndex >= targetTimes.length){
+          clearTimeout(guard);
+          resolve();
+        }
+      }
+
+      if(typeof video.requestVideoFrameCallback === 'function'){
+        const onFrame = (now, metadata) => {
+          captureDueFrames(metadata.mediaTime);
+          finishIfDone();
+          if(nextIndex < targetTimes.length) video.requestVideoFrameCallback(onFrame);
+        };
+        video.requestVideoFrameCallback(onFrame);
+      } else {
+        video.addEventListener('timeupdate', () => {
+          captureDueFrames(video.currentTime);
+          finishIfDone();
+        });
+      }
+
+      video.addEventListener('ended', () => {
+        captureDueFrames(duration);
+        clearTimeout(guard);
+        resolve();
+      }, { once:true });
+
+      video.playbackRate = 8;
+      video.play().catch(resolve);
+    });
+
+    await Promise.all(pending);
+    frames = frames.filter(Boolean);
+
+    video.pause();
     video.remove();
   }
 
