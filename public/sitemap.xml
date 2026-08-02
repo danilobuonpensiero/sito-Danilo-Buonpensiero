@@ -7,6 +7,7 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://danilo-buonpensiero.vercel.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://danilo-buonpensiero.vercel.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://danilo-buonpensiero.vercel.app/es/"/>
   </url>
   <url>
     <loc>https://danilo-buonpensiero.vercel.app/en/</loc>
@@ -14,5 +15,14 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://danilo-buonpensiero.vercel.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://danilo-buonpensiero.vercel.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://danilo-buonpensiero.vercel.app/es/"/>
+  </url>
+  <url>
+    <loc>https://danilo-buonpensiero.vercel.app/es/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://danilo-buonpensiero.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://danilo-buonpensiero.vercel.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://danilo-buonpensiero.vercel.app/es/"/>
   </url>
 </urlset>

@@ -10,6 +10,7 @@
 
 <link rel="alternate" hreflang="it" href="https://danilo-buonpensiero.vercel.app/">
 <link rel="alternate" hreflang="en" href="https://danilo-buonpensiero.vercel.app/en/">
+<link rel="alternate" hreflang="es" href="https://danilo-buonpensiero.vercel.app/es/">
 <link rel="alternate" hreflang="x-default" href="https://danilo-buonpensiero.vercel.app/">
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -136,18 +137,18 @@
 
   .nav-group{ display:flex; align-items:center; gap:24px; }
 
-  .lang-switch{
+  .lang-switch-group{ display:flex; align-items:center; gap:12px; }
+  .lang-switch-group a,
+  .lang-switch-group span{
     font-family:'Inter', sans-serif;
     font-size:11px;
     text-transform:uppercase;
     letter-spacing:1.5px;
-    color:var(--ink-60);
     transition:color 0.25s ease;
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
   }
-  .lang-switch:hover{ color:var(--ink); }
+  .lang-switch-group a{ color:var(--ink-60); }
+  .lang-switch-group a:hover{ color:var(--ink); }
+  .lang-switch-group span{ color:var(--ink); font-weight:600; }
 
   /* ---------- SCROLL PROGRESS BAR ---------- */
   #scroll-progress-track{
@@ -680,7 +681,11 @@
     <div class="brand">DANILO BUONPENSIERO</div>
     <div class="nav-group">
       <a class="nav-contact" href="#contact">CONTATTI</a>
-      <a class="lang-switch" href="/en/" hreflang="en" aria-label="Switch to English">EN &#127468;&#127463;</a>
+      <div class="lang-switch-group">
+        <span aria-current="true">IT</span>
+        <a href="/en/" hreflang="en" aria-label="Switch to English">EN</a>
+        <a href="/es/" hreflang="es" aria-label="Cambiar a espa&ntilde;ol">ES</a>
+      </div>
     </div>
   </header>
 
