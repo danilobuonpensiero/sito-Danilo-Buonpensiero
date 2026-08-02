@@ -1186,6 +1186,8 @@
       return;
     }
 
+    initScroll();
+
     try{
       await extractFrames();
     } catch(err){
@@ -1198,8 +1200,6 @@
       ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg') || '#EDE4D3';
       ctx.fillRect(0, 0, heroCanvas.width, heroCanvas.height);
     }
-
-    initScroll();
 
     dismissLoadingScreen();
   })();
