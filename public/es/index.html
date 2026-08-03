@@ -375,6 +375,44 @@
   .accent-yellow .card-accent-line{ background:var(--yellow); }
   .accent-green .card-accent-line{ background:var(--green); }
 
+  /* ---------- WORK SECTION ---------- */
+  #work{
+    position:relative;
+    background:var(--bg);
+    padding:140px 60px;
+    z-index:1;
+  }
+
+  .work-card-image{
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+    background:var(--bg-soft);
+    margin-bottom:24px;
+    display:block;
+    opacity:0;
+    transition:opacity 0.4s ease;
+  }
+  .work-card-image.loaded{ opacity:1; }
+
+  .work-card-date{
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:var(--ink-60);
+    margin-bottom:8px;
+  }
+
+  .work-card-link{
+    display:inline-block;
+    margin-top:16px;
+    font-family:'Inter', sans-serif;
+    font-size:13px;
+    text-decoration:underline;
+    color:var(--ink);
+  }
+
   /* ---------- CONTACT SECTION ---------- */
   #contact{
     background:var(--ink);
@@ -788,6 +826,12 @@
     </div>
   </section>
 
+  <section id="work" hidden>
+    <div class="section-eyebrow">TRABAJOS RECIENTES</div>
+    <div class="section-title">Proyectos recientes.</div>
+    <div class="card-grid" id="work-grid"></div>
+  </section>
+
   <section id="contact">
     <div class="contact-inner">
       <div class="contact-eyebrow">CONTACTO</div>
@@ -1163,6 +1207,81 @@ document.addEventListener('DOMContentLoaded', function(){
     }, 3000);
   });
 
+  function formatWorkDate(item){
+    if(!item.dateStart) return '';
+    const opts = { month: 'short', year: 'numeric' };
+    const start = new Date(item.dateStart).toLocaleDateString('es-ES', opts);
+    if(!item.dateEnd) return start;
+    const end = new Date(item.dateEnd).toLocaleDateString('es-ES', opts);
+    return start + ' – ' + end;
+  }
+
+  function renderWorkCard(item, index){
+    const card = document.createElement('div');
+    card.className = 'card ' + (index % 2 === 0 ? 'accent-yellow' : 'accent-green');
+
+    const accentLine = document.createElement('div');
+    accentLine.className = 'card-accent-line';
+    card.appendChild(accentLine);
+
+    if(item.image){
+      const img = document.createElement('img');
+      img.className = 'work-card-image';
+      img.src = item.image;
+      img.alt = item.title || '';
+      img.addEventListener('load', () => img.classList.add('loaded'));
+      img.addEventListener('error', () => img.remove());
+      card.appendChild(img);
+    }
+
+    const dateLabel = formatWorkDate(item);
+    if(dateLabel){
+      const date = document.createElement('div');
+      date.className = 'work-card-date';
+      date.textContent = dateLabel;
+      card.appendChild(date);
+    }
+
+    const title = document.createElement('div');
+    title.className = 'card-title';
+    title.textContent = item.title || '';
+    card.appendChild(title);
+
+    const desc = document.createElement('p');
+    desc.className = 'card-description';
+    desc.textContent = item.description || '';
+    card.appendChild(desc);
+
+    if(item.link){
+      const link = document.createElement('a');
+      link.className = 'work-card-link';
+      link.href = item.link;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'Ver más →';
+      card.appendChild(link);
+    }
+
+    return card;
+  }
+
+  async function loadWorkSection(){
+    try{
+      const res = await fetch('/api/portfolio?lang=es');
+      if(!res.ok) return;
+      const items = await res.json();
+      if(!Array.isArray(items) || items.length === 0) return;
+
+      const grid = document.getElementById('work-grid');
+      items.forEach((item, i) => grid.appendChild(renderWorkCard(item, i)));
+
+      document.getElementById('work').hidden = false;
+      if(!prefersReducedMotion) ScrollTrigger.refresh();
+    } catch(err){
+      console.error('Failed to load portfolio items:', err);
+    }
+  }
+
   function dismissLoadingScreen(){
     if(loadingScreen.dataset.dismissed === '1') return;
     loadingScreen.dataset.dismissed = '1';
@@ -1176,6 +1295,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   (async function init(){
     resizeCanvas();
+    loadWorkSection();
 
     if(prefersReducedMotion){
       try{
