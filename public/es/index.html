@@ -894,7 +894,7 @@ document.addEventListener('DOMContentLoaded', function(){
     videoSrc: '/background-narrative.mp4',
     maxFrameWidth: 960,
     minFrames: 60,
-    maxFrames: 100,
+    maxFrames: 160,
     samplesPerSecond: 15
   };
 
@@ -959,7 +959,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  async function drawStaticFrame(){
+  async function drawStaticFrame(seekFraction = 0.15){
     const video = document.createElement('video');
     video.src = CONFIG.videoSrc;
     video.muted = true;
@@ -981,7 +981,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
     const duration = video.duration || 1;
-    await seekTo(video, Math.min(duration * 0.15, Math.max(duration - 0.05, 0)));
+    await seekTo(video, Math.min(duration * seekFraction, Math.max(duration - 0.05, 0)));
 
     const cw = heroCanvas.width, ch = heroCanvas.height;
     const scale = Math.max(cw / video.videoWidth, ch / video.videoHeight);
@@ -1313,19 +1313,23 @@ document.addEventListener('DOMContentLoaded', function(){
     initScroll();
 
     try{
+      await drawStaticFrame(0);
+    } catch(err){
+      console.error('First frame preview failed:', err);
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg') || '#EDE4D3';
+      ctx.fillRect(0, 0, heroCanvas.width, heroCanvas.height);
+    }
+    dismissLoadingScreen();
+
+    try{
       await extractFrames();
     } catch(err){
       console.error('Frame extraction failed:', err);
     }
 
-    if(frames.length){
+    if(frames.length && currentFrameIndex === -1){
       requestDraw(0);
-    } else {
-      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg') || '#EDE4D3';
-      ctx.fillRect(0, 0, heroCanvas.width, heroCanvas.height);
     }
-
-    dismissLoadingScreen();
   })();
 });
 </script>
