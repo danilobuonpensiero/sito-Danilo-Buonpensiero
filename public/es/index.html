@@ -1147,7 +1147,7 @@ document.addEventListener('DOMContentLoaded', function(){
       trigger: '#hero',
       start: 'top top',
       end: 'bottom bottom',
-      scrub: true,
+      scrub: 0.5,
       onUpdate(self){
         const progress = self.progress;
         const frameIndex = Math.round(progress * (frames.length - 1));
