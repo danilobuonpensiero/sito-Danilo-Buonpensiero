@@ -413,6 +413,54 @@
     color:var(--ink);
   }
 
+  /* ---------- JOURNEY & PROJECTS SECTIONS ---------- */
+  #journey, #projects{
+    position:relative;
+    background:var(--bg);
+    padding:140px 60px;
+    z-index:1;
+  }
+
+  .section-note{
+    font-family:'Inter', sans-serif;
+    font-size:14px;
+    color:var(--ink-60);
+    text-align:center;
+    max-width:600px;
+    margin:-56px auto 64px;
+  }
+
+  .cert-list{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:16px;
+    max-width:1100px;
+    margin:64px auto 0;
+  }
+
+  .cert-item{
+    flex:1 1 240px;
+    max-width:280px;
+    border:1px solid rgba(10,10,10,0.15);
+    padding:20px 24px;
+    background:var(--bg-soft);
+  }
+
+  .cert-name{
+    font-family:'Cormorant Garamond', serif;
+    font-size:19px;
+    font-weight:500;
+    color:var(--ink);
+    margin-bottom:4px;
+  }
+
+  .cert-meta{
+    font-family:'Inter', sans-serif;
+    font-size:12px;
+    color:var(--ink-60);
+  }
+
   /* ---------- CONTACT SECTION ---------- */
   #contact{
     background:var(--ink);
@@ -778,6 +826,7 @@
         <p>Ho gestito comunicazione e ufficio stampa per <strong>Kings League</strong>, lega internazionale di sport entertainment. Ho collaborato alla strategia di contenuto della piattaforma OTT <strong>Mediaset Infinity</strong>. Ho contribuito a definire l&rsquo;identit&agrave; editoriale di <strong>Pianeta Serie B</strong>, portale con una community di centinaia di migliaia di follower.</p>
 
         <p class="about-tools"><strong>Strumenti:</strong> WordPress &middot; Adobe Photoshop, Premiere, Illustrator, After Effects &middot; CapCut &middot; Canva &middot; Meta Business Suite &middot; Google Analytics &middot; HubSpot &middot; AI generativa (Claude, ChatGPT, Gemini, Higgsfield, ElevenLabs, Nano Banana)</p>
+        <p class="about-tools"><strong>Lingue:</strong> Italiano (madrelingua) &middot; Inglese (professionale completo) &middot; Spagnolo (professionale completo) &middot; Francese (base)</p>
       </div>
 
       <div class="about-stats">
@@ -826,10 +875,178 @@
     </div>
   </section>
 
-  <section id="work" hidden>
+  <section id="work">
     <div class="section-eyebrow">LAVORI RECENTI</div>
     <div class="section-title">Progetti recenti.</div>
-    <div class="card-grid" id="work-grid"></div>
+    <div class="card-grid">
+      <div class="card accent-yellow">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Lug 2017 &ndash; Oggi</div>
+        <div class="card-title">Pianeta Serie B</div>
+        <div class="card-subtitle">Content Editor</div>
+        <p class="card-description">Produzione quotidiana di contenuti editoriali sul campionato di Serie B: articoli, interviste e reportage dal campo. Gestione autonoma del workflow su WordPress e ottimizzazione SEO dei contenuti.</p>
+      </div>
+
+      <div class="card accent-green">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Feb 2023 &ndash; Oggi</div>
+        <div class="card-title">Pianeta Serie B</div>
+        <div class="card-subtitle">Social Media &amp; Community Manager</div>
+        <p class="card-description">Gestione strategica di Instagram, Facebook e TikTok: format, calendario editoriale, produzione video nativi e community management. Risultati: +40.000 follower organici, +50M visualizzazioni, +30k interazioni.</p>
+      </div>
+
+      <div class="card accent-yellow">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Nov 2023 &ndash; Oggi</div>
+        <div class="card-title">Pianeta Champions</div>
+        <div class="card-subtitle">Content Editor UEFA &middot; in partnership con OneFootball</div>
+        <p class="card-description">Redazione di contenuti sul calcio europeo e le competizioni UEFA. Applicazione di logiche SEO e coordinamento cross-channel tra sito e social.</p>
+      </div>
+
+      <div class="card accent-green">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Dic 2024 &ndash; Lug 2025</div>
+        <div class="card-title">Kings League Italia</div>
+        <div class="card-subtitle">Communications Specialist</div>
+        <p class="card-description">Ufficio stampa, media relations e accrediti per la Kings League in Italia. Piano editoriale, interviste esclusive, strategie di influencer marketing e produzione video per gli eventi live.</p>
+      </div>
+
+      <div class="card accent-yellow">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Ott 2023 &ndash; Ott 2024</div>
+        <div class="card-title">LGI Sport</div>
+        <div class="card-subtitle">Content Producer &middot; settore giovanile Palermo</div>
+        <p class="card-description">Riprese integrali delle gare del settore giovanile (Primavera, U17, U16, U15), montaggio highlights e short-form content, dalla ripresa alla consegna dei materiali per TV e online.</p>
+      </div>
+
+      <div class="card accent-green">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Gen 2022 &ndash; Lug 2022</div>
+        <div class="card-title">Gruppo Mediaset</div>
+        <div class="card-subtitle">Streaming Content Editor &middot; Mediaset Infinity+</div>
+        <p class="card-description">Sviluppo di strategie editoriali per i contenuti streaming Infinity+, pianificazione dei contenuti UEFA Champions League e cura dell&rsquo;esperienza in piattaforma.</p>
+      </div>
+
+      <div class="card accent-yellow">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Lug 2018 &ndash; Set 2021</div>
+        <div class="card-title">I Love Palermo Calcio</div>
+        <div class="card-subtitle">Digital Content Editor &middot; Palermo FC</div>
+        <p class="card-description">Copertura editoriale quotidiana sul Palermo FC: news, interviste, cronache pre/post-partita, presenza diretta a conferenze stampa e partite ufficiali.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="section-eyebrow">IL MIO PERCORSO</div>
+    <div class="section-title">Formazione e crescita.</div>
+    <div class="card-grid">
+      <div class="card accent-yellow">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Ott 2023 &ndash; Apr 2025</div>
+        <div class="card-title">Universit&agrave; IULM</div>
+        <div class="card-subtitle">Master in Marketing e Comunicazione dello Sport</div>
+        <p class="card-description">Percorso incentrato sul marketing sportivo, la gestione dei media e la comunicazione strategica nel settore calcistico. Tesi: &laquo;La Lega Serie A &egrave; una Media Company: il Case History di Radio TV Serie A&raquo;.</p>
+      </div>
+
+      <div class="card accent-green">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Feb 2026 &ndash; Lug 2026</div>
+        <div class="card-title">Alma Mater Studiorum</div>
+        <div class="card-subtitle">Alta Formazione &laquo;Sustainability Manager nello sport&raquo;</div>
+        <p class="card-description">Competenze operative per la sostenibilit&agrave; nello sport: quadro giuridico, governance, sostenibilit&agrave; ambientale e sociale, impact finance, marketing e rendicontazione di sostenibilit&agrave;.</p>
+      </div>
+
+      <div class="card accent-yellow">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Gen 2019 &ndash; Mar 2022</div>
+        <div class="card-title">Universit&agrave; IULM</div>
+        <div class="card-subtitle">Laurea Magistrale in Televisione, Cinema e New Media</div>
+        <p class="card-description">Specializzazione in Televisione, con approfondimento sui nuovi modelli di distribuzione audiovisiva. Tesi: &laquo;Le OTT e lo streaming nel mondo dello sport: dal sorpasso sulla Pay TV alla disruption&raquo;.</p>
+      </div>
+
+      <div class="card accent-green">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">2015 &ndash; 2019</div>
+        <div class="card-title">Universit&agrave; degli Studi di Palermo</div>
+        <div class="card-subtitle">Scienze della Comunicazione per i Media e le Istituzioni</div>
+        <p class="card-description">Studio dei linguaggi della comunicazione, dei media digitali e del giornalismo contemporaneo. Tesi: &laquo;I Social Networks nel mondo dello sport&raquo;.</p>
+      </div>
+    </div>
+
+    <div class="cert-list">
+      <div class="cert-item">
+        <div class="cert-name">Google AI</div>
+        <div class="cert-meta">Google &middot; Apr 2026</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name">C1 Advanced</div>
+        <div class="cert-meta">Cambridge Assessment International Education &middot; Giu 2024</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name">B2 First</div>
+        <div class="cert-meta">Cambridge University Press &amp; Assessment &middot; Lug 2023</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-name">Certified Professional in Visual Design (Photoshop)</div>
+        <div class="cert-meta">Adobe &middot; Ott 2023</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-eyebrow">PROGETTI</div>
+    <div class="section-title">Idee messe alla prova.</div>
+    <p class="section-note">Progetti accademici e di simulazione sviluppati durante il percorso di studi, distinti dai lavori professionali per clienti reali.</p>
+    <div class="card-grid">
+      <div class="card accent-yellow">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Giu 2026 &ndash; Lug 2026</div>
+        <div class="card-title">Report di sostenibilit&agrave; VSME/EFRAG</div>
+        <div class="card-subtitle">Bologna Sport Marathon SSD</div>
+        <p class="card-description">Primo report di sostenibilit&agrave; della societ&agrave;, redatto secondo lo standard VSME pubblicato da EFRAG per le PMI: mappatura delle attivit&agrave;, raccolta dati ESG e redazione del documento, adattati al contesto degli eventi sportivi di massa.</p>
+      </div>
+
+      <div class="card accent-green">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Gen 2024 &ndash; Feb 2024</div>
+        <div class="card-title">Campagna anti-odio</div>
+        <div class="card-subtitle">Simulazione per AC Milan &middot; Universit&agrave; IULM</div>
+        <p class="card-description">Campagna di sensibilizzazione contro l&rsquo;odio nel calcio: analisi di benchmark internazionali e piano editoriale integrato su canali online e offline per l&rsquo;intera stagione.</p>
+      </div>
+
+      <div class="card accent-yellow">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Gen 2024 &ndash; Feb 2024</div>
+        <div class="card-title">Campagna sul benessere mentale</div>
+        <div class="card-subtitle">Simulazione per U.S. Sassuolo &middot; Universit&agrave; IULM</div>
+        <p class="card-description">Campagna di sensibilizzazione sul benessere mentale nello sport, pensata come modello scalabile ad altri club di Serie A, con attivazioni social e offline.</p>
+      </div>
+
+      <div class="card accent-green">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Nov 2023 &ndash; Dic 2023</div>
+        <div class="card-title">Attivazione sponsor Supercoppa</div>
+        <div class="card-subtitle">Lega Serie A x EA Sports &middot; Universit&agrave; IULM</div>
+        <p class="card-description">Piano di attivazione per EA Sports FC, title sponsor della Supercoppa Italiana, con strategie di coinvolgimento dei tifosi in tutte le fasi dell&rsquo;evento.</p>
+      </div>
+
+      <div class="card accent-yellow">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Nov 2023 &ndash; Dic 2023</div>
+        <div class="card-title">Concept &laquo;Timekeeper&raquo;</div>
+        <div class="card-subtitle">Lega Serie A x luxury brand &middot; Universit&agrave; IULM</div>
+        <p class="card-description">Nuovo concept di sponsorizzazione per il posizionamento di un brand di lusso nel calcio professionistico, in linea con i trend di ingresso dei brand luxury nello sport.</p>
+      </div>
+
+      <div class="card accent-green">
+        <div class="card-accent-line"></div>
+        <div class="work-card-date">Ott 2023 &ndash; Nov 2023</div>
+        <div class="card-title">Business plan nuovo stadio</div>
+        <div class="card-subtitle">Ispirato al City Football Group &middot; Universit&agrave; IULM</div>
+        <p class="card-description">Business plan per un nuovo stadio di propriet&agrave; del Palermo FC: analisi di benchmark, impatto economico-ambientale e modello di gestione orientato all&rsquo;autonomia finanziaria.</p>
+      </div>
+    </div>
   </section>
 
   <section id="contact">
@@ -1224,81 +1441,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }, 3000);
   });
 
-  function formatWorkDate(item){
-    if(!item.dateStart) return '';
-    const opts = { month: 'short', year: 'numeric' };
-    const start = new Date(item.dateStart).toLocaleDateString('it-IT', opts);
-    if(!item.dateEnd) return start;
-    const end = new Date(item.dateEnd).toLocaleDateString('it-IT', opts);
-    return start + ' – ' + end;
-  }
-
-  function renderWorkCard(item, index){
-    const card = document.createElement('div');
-    card.className = 'card ' + (index % 2 === 0 ? 'accent-yellow' : 'accent-green');
-
-    const accentLine = document.createElement('div');
-    accentLine.className = 'card-accent-line';
-    card.appendChild(accentLine);
-
-    if(item.image){
-      const img = document.createElement('img');
-      img.className = 'work-card-image';
-      img.src = item.image;
-      img.alt = item.title || '';
-      img.addEventListener('load', () => img.classList.add('loaded'));
-      img.addEventListener('error', () => img.remove());
-      card.appendChild(img);
-    }
-
-    const dateLabel = formatWorkDate(item);
-    if(dateLabel){
-      const date = document.createElement('div');
-      date.className = 'work-card-date';
-      date.textContent = dateLabel;
-      card.appendChild(date);
-    }
-
-    const title = document.createElement('div');
-    title.className = 'card-title';
-    title.textContent = item.title || '';
-    card.appendChild(title);
-
-    const desc = document.createElement('p');
-    desc.className = 'card-description';
-    desc.textContent = item.description || '';
-    card.appendChild(desc);
-
-    if(item.link){
-      const link = document.createElement('a');
-      link.className = 'work-card-link';
-      link.href = item.link;
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.textContent = 'Scopri di più →';
-      card.appendChild(link);
-    }
-
-    return card;
-  }
-
-  async function loadWorkSection(){
-    try{
-      const res = await fetch('/api/portfolio?lang=it');
-      if(!res.ok) return;
-      const items = await res.json();
-      if(!Array.isArray(items) || items.length === 0) return;
-
-      const grid = document.getElementById('work-grid');
-      items.forEach((item, i) => grid.appendChild(renderWorkCard(item, i)));
-
-      document.getElementById('work').hidden = false;
-      if(!prefersReducedMotion) ScrollTrigger.refresh();
-    } catch(err){
-      console.error('Failed to load portfolio items:', err);
-    }
-  }
-
   function dismissLoadingScreen(){
     if(loadingScreen.dataset.dismissed === '1') return;
     loadingScreen.dataset.dismissed = '1';
@@ -1312,7 +1454,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
   (async function init(){
     resizeCanvas();
-    loadWorkSection();
 
     if(prefersReducedMotion){
       try{
