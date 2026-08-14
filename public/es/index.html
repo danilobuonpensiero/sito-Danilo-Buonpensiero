@@ -910,6 +910,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   let frames = [];
   let currentFrameIndex = -1;
+  let lastRequestedIndex = -1;
   let pendingFrame = null;
 
   function resizeCanvas(){
@@ -921,23 +922,40 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function drawFrame(index){
     const bmp = frames[index];
-    if(!bmp) return;
+    if(!bmp) return false;
     const cw = heroCanvas.width, ch = heroCanvas.height;
     const scale = Math.max(cw / bmp.width, ch / bmp.height);
     const dw = bmp.width * scale, dh = bmp.height * scale;
     const dx = (cw - dw) / 2, dy = (ch - dh) / 2;
     ctx.clearRect(0, 0, cw, ch);
     ctx.drawImage(bmp, dx, dy, dw, dh);
+    return true;
+  }
+
+  // While frames are still arriving in the background, the exact requested
+  // index may not exist yet - fall back to whatever's closest so the canvas
+  // keeps tracking scroll instead of freezing until extraction catches up.
+  function nearestFilledIndex(target){
+    if(frames[target]) return target;
+    for(let d = 1; d < frames.length; d++){
+      if(frames[target - d]) return target - d;
+      if(frames[target + d]) return target + d;
+    }
+    return -1;
   }
 
   function requestDraw(index){
-    if(index === currentFrameIndex) return;
+    if(index === lastRequestedIndex) return;
+    lastRequestedIndex = index;
     pendingFrame = index;
     requestAnimationFrame(() => {
       if(pendingFrame !== null){
-        drawFrame(pendingFrame);
-        currentFrameIndex = pendingFrame;
+        const target = pendingFrame;
         pendingFrame = null;
+        const source = frames[target] ? target : nearestFilledIndex(target);
+        if(source !== -1 && source !== currentFrameIndex && drawFrame(source)){
+          currentFrameIndex = source;
+        }
       }
     });
   }
