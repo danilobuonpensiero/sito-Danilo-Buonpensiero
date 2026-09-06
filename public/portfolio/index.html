@@ -227,6 +227,10 @@
 
   .case-head{ position:sticky; top:96px; align-self:start; }
 
+  /* senza questo la tabella, che ha una larghezza minima, allarga la colonna
+     della griglia invece di scorrere dentro al proprio contenitore */
+  .case-body{ min-width:0; }
+
   .case-client{
     font-family:'Cormorant Garamond', serif;
     font-size:29px;
@@ -299,6 +303,46 @@
     line-height:1.5;
     color:var(--ink-60);
     max-width:190px;
+  }
+
+  .case-table-wrap{
+    overflow-x:auto;
+    margin-bottom:20px;
+  }
+  .case-table{
+    width:100%;
+    border-collapse:collapse;
+    font-family:'Inter', sans-serif;
+    font-size:14px;
+    min-width:520px;
+  }
+  .case-table th{
+    text-align:left;
+    font-size:11px;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+    color:var(--ink-60);
+    padding:0 20px 12px 0;
+    border-bottom:1px solid rgba(10,10,10,0.2);
+    white-space:nowrap;
+  }
+  .case-table td{
+    padding:14px 20px 14px 0;
+    border-bottom:1px solid rgba(10,10,10,0.08);
+    color:rgba(10,10,10,0.78);
+    vertical-align:top;
+  }
+  .case-table td.num{ font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .case-table tr:last-child td{ border-bottom:none; }
+
+  .case-note{
+    font-family:'Inter', sans-serif;
+    font-size:12px;
+    line-height:1.6;
+    color:var(--ink-40);
+    margin-bottom:48px;
+    max-width:640px;
   }
 
   .case-links{
@@ -817,7 +861,7 @@
       <article class="case">
         <div class="case-head">
           <div class="case-client">Contenuti a mio nome</div>
-          <div class="case-role">LinkedIn &middot; Instagram &middot; TikTok</div>
+          <div class="case-role">Instagram &middot; TikTok</div>
           <div class="case-period">In corso</div>
         </div>
         <div class="case-body">
@@ -836,7 +880,6 @@
         <div class="case-label">Link</div>
         <ul class="case-links">
             <li><a href="https://www.instagram.com/danilobuonpensiero_/" target="_blank" rel="noopener">Instagram<span class="ext">&#8599;</span></a></li>
-            <li><a href="https://www.linkedin.com/in/danilo-buonpensiero/" target="_blank" rel="noopener">LinkedIn<span class="ext">&#8599;</span></a></li>
         </ul>
 
         <div class="case-gallery">
@@ -853,6 +896,51 @@
             <figcaption>Approfondimento sul modello Red Bull in Serie A</figcaption>
           </figure>
         </div>
+
+        </div>
+      </article>
+      <article class="case">
+        <div class="case-head">
+          <div class="case-client">LinkedIn</div>
+          <div class="case-role">Analisi sul business dello sport</div>
+          <div class="case-period">Set 2025 &rarr; Set 2026</div>
+        </div>
+        <div class="case-body">
+          <div class="case-label">Cosa ho fatto</div>
+          <ul class="case-list">
+          <li>Cinquanta pubblicazioni in dodici mesi: analisi e approfondimenti sul business dello sport, tra sponsorizzazioni, diritti media, modelli societari e casi internazionali.</li>
+          <li>Format costruiti sugli stessi criteri editoriali che applico ai canali dei clienti: scelta dell&rsquo;angolo, titolazione, struttura e ritmo di pubblicazione.</li>
+          <li>Tre contenuti hanno superato le 10.000 impressioni singole.</li>
+          </ul>
+        <div class="case-label">Risultati</div>
+        <div class="metrics">
+          <div class="metric"><span class="metric-num">187.423</span><span class="metric-label">impressioni totali in dodici mesi</span></div>
+          <div class="metric"><span class="metric-num">53.497</span><span class="metric-label">utenti unici raggiunti</span></div>
+          <div class="metric"><span class="metric-num">2.330</span><span class="metric-label">interazioni totali</span></div>
+          <div class="metric"><span class="metric-num">+1.437</span><span class="metric-label">nuovi follower, 4.338 in totale (+49%)</span></div>
+          <div class="metric"><span class="metric-num">1,24%</span><span class="metric-label">engagement rate medio, con picchi mensili all&rsquo;1,67%</span></div>
+        </div>
+
+        <div class="case-label">Contenuti pi&ugrave; performanti</div>
+        <div class="case-table-wrap">
+          <table class="case-table">
+            <thead><tr><th>Contenuto</th><th>Data</th><th>Impressioni</th><th>Interazioni</th></tr></thead>
+            <tbody>
+            <tr><td>FC Versailles</td><td class="num">29/10/2025</td><td class="num">15.676</td><td class="num">112</td></tr>
+            <tr><td>Effetto Vardy</td><td class="num">09/09/2025</td><td class="num">14.531</td><td class="num">147</td></tr>
+            <tr><td>Il sogno americano del Campobasso</td><td class="num">15/10/2025</td><td class="num">10.690</td><td class="num">181</td></tr>
+            <tr><td>Futsal</td><td class="num">16/12/2025</td><td class="num">9.472</td><td class="num">146</td></tr>
+            <tr><td>Effetto Indonesia</td><td class="num">08/10/2025</td><td class="num">9.341</td><td class="num">&mdash;</td></tr>
+            <tr><td>RCD Mallorca</td><td class="num">01/10/2025</td><td class="num">&mdash;</td><td class="num">111</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="case-note">Dati LinkedIn Analytics, 7 settembre 2025 &ndash; 6 settembre 2026. Il trattino indica un valore fuori dalle prime cinque posizioni della rispettiva classifica.</p>
+
+        <div class="case-label">Link</div>
+        <ul class="case-links">
+            <li><a href="https://www.linkedin.com/in/danilo-buonpensiero/" target="_blank" rel="noopener">Il profilo LinkedIn<span class="ext">&#8599;</span></a></li>
+        </ul>
 
         </div>
       </article>

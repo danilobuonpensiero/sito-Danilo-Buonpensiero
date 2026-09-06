@@ -122,7 +122,7 @@
     font-size:18px;
     text-transform:uppercase;
     letter-spacing:2px;
-    color:var(--ink);
+    color:var(--ink);  white-space:nowrap;
   }
 
   #site-header .nav-contact{
@@ -150,6 +150,7 @@
   .lang-switch-group a{ color:var(--ink-60); }
   .lang-switch-group a:hover{ color:var(--ink); }
   .lang-switch-group span{ color:var(--ink); font-weight:600; }
+  .brand-short{ display:none; }
 
   /* ---------- SCROLL PROGRESS BAR ---------- */
   #scroll-progress-track{
@@ -773,6 +774,16 @@
     text-align:center;
   }
 
+  @media (max-width:760px){
+    .brand-full{ display:none; }
+    .brand-short{ display:inline; }
+    .nav-group{ gap:16px; }
+    #site-header .nav-contact{ font-size:10px; letter-spacing:1.2px; }
+    .lang-switch-group{ gap:9px; }
+    .lang-switch-group a,
+    .lang-switch-group span{ font-size:10px; letter-spacing:1.2px; }
+  }
+
   @media (max-width:900px){
     .about-grid{ grid-template-columns:1fr; gap:48px; }
     .card-grid{ grid-template-columns:1fr; }
@@ -803,7 +814,7 @@
   </div>
 
   <header id="site-header">
-    <div class="brand">DANILO BUONPENSIERO</div>
+    <div class="brand"><span class="brand-full">DANILO BUONPENSIERO</span><span class="brand-short">DB</span></div>
     <div class="nav-group">
       <a class="nav-contact" href="/es/portfolio/">PORTFOLIO</a>
       <a class="nav-contact" href="#contact">CONTACTO</a>
