@@ -415,13 +415,20 @@
   .case-links a:hover{ border-bottom-color:var(--ink); opacity:0.7; }
   .case-links .ext{ color:var(--ink-40); margin-left:5px; }
 
+  /* galleria giustificata: ogni riga ha immagini della stessa altezza e
+     arriva a filo del bordo destro, senza ritagliare nulla. flex-grow e
+     flex-basis sono proporzionali al rapporto d'aspetto reale di ogni file. */
   .case-gallery{
-    columns:210px;
-    column-gap:16px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px 14px;
   }
   .case-gallery figure{
-    break-inside:avoid;
-    margin:0 0 20px;
+    margin:0;
+  }
+  .case-gallery::after{
+    content:'';
+    flex-grow:9999;
   }
   .case-gallery img{
     display:block;
@@ -516,6 +523,8 @@
     .sector-head{ padding:64px 0 44px; }
     .sector-title{ font-size:32px; }
     .case{ grid-template-columns:1fr; gap:32px; }
+    .case-gallery figure{ flex:1 1 100% !important; }
+    .case-gallery::after{ content:none; }
     .case-head{ position:static; }
     .case-client{ font-size:26px; }
     .metric-num{ font-size:34px; }
@@ -585,7 +594,7 @@
           <div class="story-h">El contexto</div>
           <p>Colaboro con Pianeta Serie B desde 2017 como content editor. En febrero de 2023 asum&iacute; la gesti&oacute;n de los canales sociales del medio: Instagram, Facebook y TikTok, con unos 35.000 seguidores en total. La l&iacute;nea editorial era el reflejo de la web: noticias, alineaciones, resultados. Una audiencia fiel, pero con un volumen de visualizaciones mensuales muy limitado y estancado desde hac&iacute;a tiempo.</p>
           <figure class="story-figure">
-            <img src="/images/portfolio/psb-instagram-profilo.jpg" alt="Captura del perfil de Instagram de Pianeta Serie B con los datos de seguidores y visualizaciones" loading="lazy" decoding="async">
+            <img src="/images/portfolio/psb-instagram-profilo.jpg" width="599" height="1100" alt="Captura del perfil de Instagram de Pianeta Serie B con los datos de seguidores y visualizaciones" loading="lazy" decoding="async">
             <figcaption>El perfil hoy: 19,2 mil seguidores y 3,2 millones de visualizaciones en los &uacute;ltimos 30 d&iacute;as</figcaption>
           </figure>
         </div>
@@ -603,7 +612,7 @@
             <li>Revisi&oacute;n semanal de los datos con regla de salida. Cada formato tiene un n&uacute;mero definido de publicaciones para demostrar que funciona, tras las cuales se corrige o se retira. Sin esa regla, la revisi&oacute;n de formatos tiende a no producirse nunca.</li>
           </ul>
           <figure class="story-figure">
-            <img src="/images/portfolio/psb-reel-views.jpg" alt="Cuadr&iacute;cula de reels publicados en el perfil, cada uno con su recuento de visualizaciones" loading="lazy" decoding="async">
+            <img src="/images/portfolio/psb-reel-views.jpg" width="623" height="1100" alt="Cuadr&iacute;cula de reels publicados en el perfil, cada uno con su recuento de visualizaciones" loading="lazy" decoding="async">
             <figcaption>Una selecci&oacute;n de reels, de 7.000 a 224 mil visualizaciones</figcaption>
           </figure>
         </div>
@@ -616,7 +625,7 @@
           <div class="metric"><span class="metric-num">3 M</span><span class="metric-label">visualizaciones en el contenido con mejor rendimiento</span></div>
         </div>
         <figure class="story-figure">
-          <img src="/images/portfolio/psb-post-insigne.jpg" alt="Publicaci&oacute;n del perfil con los datos de visualizaciones e interacciones a la vista" loading="lazy" decoding="async">
+          <img src="/images/portfolio/psb-post-insigne.jpg" width="702" height="1100" alt="Publicaci&oacute;n del perfil con los datos de visualizaciones e interacciones a la vista" loading="lazy" decoding="async">
           <figcaption>La publicaci&oacute;n con el pico de visualizaciones: 291 mil visualizaciones y 12,9 mil &laquo;me gusta&raquo;</figcaption>
         </figure>
 
@@ -671,16 +680,16 @@
           <li>Relaci&oacute;n continua con los gabinetes de prensa de los clubes y con compa&ntilde;eros de otros medios.</li>
           </ul>
         <div class="case-gallery">
-          <figure>
-            <img src="/images/portfolio/pass-stampa.jpg" alt="Acreditaci&oacute;n de prensa nominal y acta del partido sobre una mesa" loading="lazy" decoding="async">
+          <figure style="flex:0.750 1 172px">
+            <img src="/images/portfolio/pass-stampa.jpg" width="605" height="807" alt="Acreditaci&oacute;n de prensa nominal y acta del partido sobre una mesa" loading="lazy" decoding="async">
             <figcaption>Acreditaci&oacute;n y acta del partido, Serie A</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/conferenza-stampa.jpg" alt="Sala de prensa durante una rueda posterior al partido" loading="lazy" decoding="async">
+          <figure style="flex:0.750 1 172px">
+            <img src="/images/portfolio/conferenza-stampa.jpg" width="825" height="1100" alt="Sala de prensa durante una rueda posterior al partido" loading="lazy" decoding="async">
             <figcaption>Rueda de prensa posterior al partido</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/tribuna-stampa-stadium.jpg" alt="Vista del campo desde la tribuna de prensa del Allianz Stadium" loading="lazy" decoding="async">
+          <figure style="flex:0.750 1 172px">
+            <img src="/images/portfolio/tribuna-stampa-stadium.jpg" width="825" height="1100" alt="Vista del campo desde la tribuna de prensa del Allianz Stadium" loading="lazy" decoding="async">
             <figcaption>Tribuna de prensa, Allianz Stadium</figcaption>
           </figure>
         </div>
@@ -700,7 +709,7 @@
           <div class="story-h">El contexto</div>
           <p>Entre diciembre de 2024 y julio de 2025 gestion&eacute; la comunicaci&oacute;n y el gabinete de prensa de la Kings League en Italia, un formato de sport entertainment nacido en Espa&ntilde;a que lleg&oacute; al mercado italiano con una comunidad ya construida en torno a los creadores, un p&uacute;blico joven y sin una estructura de comunicaci&oacute;n italiana consolidada detr&aacute;s.</p>
           <figure class="story-figure">
-            <img src="/images/portfolio/kl-inalpi-arena-campo.jpg" alt="La pista del Inalpi Arena al final de las European Finals" loading="lazy" decoding="async">
+            <img src="/images/portfolio/kl-inalpi-arena-campo.jpg" width="825" height="1100" alt="La pista del Inalpi Arena al final de las European Finals" loading="lazy" decoding="async">
             <figcaption>European Finals, Inalpi Arena de Tur&iacute;n &mdash; 22 de mayo de 2025</figcaption>
           </figure>
         </div>
@@ -708,7 +717,7 @@
           <div class="story-h">El problema</div>
           <p>El formato necesitaba legitimidad ante los medios deportivos tradicionales sin perder el lenguaje que lo hab&iacute;a hecho reconocible. Son dos audiencias con expectativas opuestas: las redacciones piden relevancia informativa, jerarqu&iacute;a y fuentes citables; la comunidad pide ritmo, iron&iacute;a y pertenencia. Un &uacute;nico registro para ambas habr&iacute;a hecho perder una de las dos.</p>
           <figure class="story-figure">
-            <img src="/images/portfolio/kl-backdrop-finals.jpg" alt="Pared de prensa con los logos de los patrocinadores para las entrevistas" loading="lazy" decoding="async">
+            <img src="/images/portfolio/kl-backdrop-finals.jpg" width="825" height="1100" alt="Pared de prensa con los logos de los patrocinadores para las entrevistas" loading="lazy" decoding="async">
             <figcaption>El backdrop de prensa de las European Finals</figcaption>
           </figure>
         </div>
@@ -722,7 +731,7 @@
             <li>Usar el seguimiento de prensa como herramienta de direcci&oacute;n. El monitoreo no serv&iacute;a para rendir cuentas a posteriori sino para entender qu&eacute; &aacute;ngulos funcionaban en qu&eacute; medios y reorientar las notas siguientes. Hab&iacute;a descartado apoyarme solo en el earned generado por los creadores: m&aacute;s r&aacute;pido, pero no habr&iacute;a producido cobertura en los medios deportivos tradicionales, que era el objetivo.</li>
           </ul>
           <figure class="story-figure">
-            <img src="/images/portfolio/kl-mixed-zone.jpg" alt="Periodistas y c&aacute;maras en la zona mixta durante una jornada" loading="lazy" decoding="async">
+            <img src="/images/portfolio/kl-mixed-zone.jpg" width="825" height="1100" alt="Periodistas y c&aacute;maras en la zona mixta durante una jornada" loading="lazy" decoding="async">
             <figcaption>Zona mixta y entrevistas a los protagonistas</figcaption>
           </figure>
         </div>
@@ -735,7 +744,7 @@
           <div class="metric"><span class="metric-num">1&ordm;</span><span class="metric-label">plan editorial italiano de la web oficial</span></div>
         </div>
         <figure class="story-figure">
-          <img src="/images/portfolio/kl-sito-editoriale.jpg" alt="P&aacute;gina principal de la web oficial italiana con los art&iacute;culos destacados" loading="lazy" decoding="async">
+          <img src="/images/portfolio/kl-sito-editoriale.jpg" width="1100" height="505" alt="P&aacute;gina principal de la web oficial italiana con los art&iacute;culos destacados" loading="lazy" decoding="async">
           <figcaption>La web oficial italiana, con el plan editorial que dise&ntilde;&eacute;</figcaption>
         </figure>
 
@@ -783,12 +792,12 @@
         </ul>
 
         <div class="case-gallery">
-          <figure>
-            <img src="/images/portfolio/psb-articolo-gomes.jpg" alt="Art&iacute;culo de an&aacute;lisis publicado en la web de Pianeta Serie B" loading="lazy" decoding="async">
+          <figure style="flex:1.436 1 330px">
+            <img src="/images/portfolio/psb-articolo-gomes.jpg" width="580" height="404" alt="Art&iacute;culo de an&aacute;lisis publicado en la web de Pianeta Serie B" loading="lazy" decoding="async">
             <figcaption>Reportaje t&aacute;ctico publicado en Pianeta Serie B</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/psb-intervista-esclusiva.jpg" alt="P&aacute;gina web con una entrevista exclusiva a un jugador de la Serie B" loading="lazy" decoding="async">
+          <figure style="flex:0.740 1 170px">
+            <img src="/images/portfolio/psb-intervista-esclusiva.jpg" width="478" height="646" alt="P&aacute;gina web con una entrevista exclusiva a un jugador de la Serie B" loading="lazy" decoding="async">
             <figcaption>Entrevista exclusiva a un protagonista de la competici&oacute;n</figcaption>
           </figure>
         </div>
@@ -834,16 +843,16 @@
         </ul>
 
         <div class="case-gallery">
-          <figure>
-            <img src="/images/portfolio/ilpc-intervista-lazaar.jpg" alt="Art&iacute;culo con entrevista exclusiva publicado en I Love Palermo Calcio" loading="lazy" decoding="async">
+          <figure style="flex:0.929 1 214px">
+            <img src="/images/portfolio/ilpc-intervista-lazaar.jpg" width="514" height="553" alt="Art&iacute;culo con entrevista exclusiva publicado en I Love Palermo Calcio" loading="lazy" decoding="async">
             <figcaption>Entrevista exclusiva publicada en el portal</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/ilpc-video-intervista.jpg" alt="Fotograma de una v&iacute;deo-entrevista grabada a pie de campo" loading="lazy" decoding="async">
+          <figure style="flex:1.115 1 256px">
+            <img src="/images/portfolio/ilpc-video-intervista.jpg" width="642" height="576" alt="Fotograma de una v&iacute;deo-entrevista grabada a pie de campo" loading="lazy" decoding="async">
             <figcaption>V&iacute;deo-entrevista realizada a pie de campo</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/ilpc-articolo-cartaceo.jpg" alt="Recorte de peri&oacute;dico con un art&iacute;culo recogido por la prensa escrita" loading="lazy" decoding="async">
+          <figure style="flex:0.593 1 136px">
+            <img src="/images/portfolio/ilpc-articolo-cartaceo.jpg" width="386" height="651" alt="Recorte de peri&oacute;dico con un art&iacute;culo recogido por la prensa escrita" loading="lazy" decoding="async">
             <figcaption>Una pieza recogida tambi&eacute;n por la prensa escrita</figcaption>
           </figure>
         </div>
@@ -882,16 +891,16 @@
         </ul>
 
         <div class="case-gallery">
-          <figure>
-            <img src="/images/portfolio/lgi-camera-campo.jpg" alt="C&aacute;mara sobre tr&iacute;pode colocada a pie de campo antes de un partido" loading="lazy" decoding="async">
+          <figure style="flex:0.750 1 172px">
+            <img src="/images/portfolio/lgi-camera-campo.jpg" width="825" height="1100" alt="C&aacute;mara sobre tr&iacute;pode colocada a pie de campo antes de un partido" loading="lazy" decoding="async">
             <figcaption>Set de grabaci&oacute;n a pie de campo</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/lgi-primavera-palermo.jpg" alt="Jugadores del f&uacute;tbol base del Palermo durante un partido" loading="lazy" decoding="async">
+          <figure style="flex:1.791 1 412px">
+            <img src="/images/portfolio/lgi-primavera-palermo.jpg" width="1028" height="574" alt="Jugadores del f&uacute;tbol base del Palermo durante un partido" loading="lazy" decoding="async">
             <figcaption>Primavera del Palermo, uno de los partidos cubiertos</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/lgi-highlights-youtube.jpg" alt="P&aacute;gina de YouTube con los highlights de un partido del f&uacute;tbol base" loading="lazy" decoding="async">
+          <figure style="flex:1.506 1 346px">
+            <img src="/images/portfolio/lgi-highlights-youtube.jpg" width="943" height="626" alt="P&aacute;gina de YouTube con los highlights de un partido del f&uacute;tbol base" loading="lazy" decoding="async">
             <figcaption>Highlights montados y publicados en el canal oficial</figcaption>
           </figure>
         </div>
@@ -930,12 +939,12 @@
         </ul>
 
         <div class="case-gallery">
-          <figure>
-            <img src="/images/portfolio/mediaset-infinity.jpg" alt="Captura de la plataforma de streaming Infinity+" loading="lazy" decoding="async">
+          <figure style="flex:2.196 1 505px">
+            <img src="/images/portfolio/mediaset-infinity.jpg" width="1100" height="501" alt="Captura de la plataforma de streaming Infinity+" loading="lazy" decoding="async">
             <figcaption>La plataforma Infinity+</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/mediaset-sede.jpg" alt="Vista de la sede del grupo Mediaset en Cologno Monzese" loading="lazy" decoding="async">
+          <figure style="flex:0.750 1 172px">
+            <img src="/images/portfolio/mediaset-sede.jpg" width="825" height="1100" alt="Vista de la sede del grupo Mediaset en Cologno Monzese" loading="lazy" decoding="async">
             <figcaption>Cologno Monzese, la sede del grupo</figcaption>
           </figure>
         </div>
@@ -978,16 +987,16 @@
         </ul>
 
         <div class="case-gallery">
-          <figure>
-            <img src="/images/portfolio/creator-profilo.jpg" alt="Perfil personal con los contenidos publicados y los datos de seguidores" loading="lazy" decoding="async">
+          <figure style="flex:0.538 1 124px">
+            <img src="/images/portfolio/creator-profilo.jpg" width="514" height="956" alt="Perfil personal con los contenidos publicados y los datos de seguidores" loading="lazy" decoding="async">
             <figcaption>El perfil personal y los contenidos publicados</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/creator-carosello-fantacalcio.jpg" alt="Primera diapositiva de un carrusel sobre el fantasy en ligas menores" loading="lazy" decoding="async">
+          <figure style="flex:0.789 1 182px">
+            <img src="/images/portfolio/creator-carosello-fantacalcio.jpg" width="472" height="598" alt="Primera diapositiva de un carrusel sobre el fantasy en ligas menores" loading="lazy" decoding="async">
             <figcaption>Carrusel de an&aacute;lisis sobre el fantasy en ligas menores</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/creator-carosello-redbull.jpg" alt="Primera diapositiva de un carrusel sobre el modelo Red Bull en la Serie A" loading="lazy" decoding="async">
+          <figure style="flex:0.831 1 191px">
+            <img src="/images/portfolio/creator-carosello-redbull.jpg" width="493" height="593" alt="Primera diapositiva de un carrusel sobre el modelo Red Bull en la Serie A" loading="lazy" decoding="async">
             <figcaption>Reportaje sobre el modelo Red Bull en la Serie A</figcaption>
           </figure>
         </div>
@@ -1054,7 +1063,7 @@
       <article class="case">
         <div class="case-head">
           <div class="case-client">Informe de sostenibilidad VSME/EFRAG</div>
-          <div class="case-role">Bologna Sport Marathon SSD &middot; proyecto profesional</div>
+          <div class="case-role">Bologna Sport Marathon SSD &middot; Universidad de Bolonia</div>
           <div class="case-period">Jun 2026 &rarr; Jul 2026</div>
         </div>
         <div class="case-body">
@@ -1065,6 +1074,7 @@
           <li>Selecci&oacute;n de los indicadores pertinentes al alcance e interlocuci&oacute;n con las funciones internas para validar la informaci&oacute;n.</li>
           <li>Redacci&oacute;n del documento y definici&oacute;n del enfoque narrativo de los contenidos.</li>
           <li>Adaptaci&oacute;n de los indicadores al contexto de los eventos deportivos masivos, donde el reporting a&uacute;n es poco frecuente: movilidad de los participantes, gesti&oacute;n de residuos en el recorrido, impacto territorial y efectos sociales en la comunidad local.</li>
+          <li>Realizado en el marco del curso de alta formaci&oacute;n &laquo;Sustainability Manager nello sport&raquo; de la Universidad de Bolonia, para una entidad deportiva real.</li>
           </ul>
         </div>
       </article>
@@ -1082,12 +1092,12 @@
           <li>Coherencia con el posicionamiento de la marca en el patrocinio deportivo.</li>
           </ul>
         <div class="case-gallery">
-          <figure>
-            <img src="/images/portfolio/prog-easports-supercoppa.jpg" alt="Diapositiva de presentaci&oacute;n del proyecto de activaci&oacute;n para EA Sports FC" loading="lazy" decoding="async">
+          <figure style="flex:1.781 1 410px">
+            <img src="/images/portfolio/prog-easports-supercoppa.jpg" width="814" height="457" alt="Diapositiva de presentaci&oacute;n del proyecto de activaci&oacute;n para EA Sports FC" loading="lazy" decoding="async">
             <figcaption>El proyecto de activaci&oacute;n para EA Sports FC</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/prog-easports-brief.jpg" alt="Diapositiva con los objetivos: consideraci&oacute;n, engagement y retenci&oacute;n" loading="lazy" decoding="async">
+          <figure style="flex:1.760 1 405px">
+            <img src="/images/portfolio/prog-easports-brief.jpg" width="815" height="463" alt="Diapositiva con los objetivos: consideraci&oacute;n, engagement y retenci&oacute;n" loading="lazy" decoding="async">
             <figcaption>Los objetivos: consideraci&oacute;n, engagement, retenci&oacute;n</figcaption>
           </figure>
         </div>
@@ -1124,12 +1134,12 @@
           <li>Modelo de gesti&oacute;n orientado a la autonom&iacute;a financiera: naming rights, hospitality, eventos y retail.</li>
           </ul>
         <div class="case-gallery">
-          <figure>
-            <img src="/images/portfolio/prog-stadio-cover.jpg" alt="Portada de la presentaci&oacute;n del plan de negocio para un nuevo estadio" loading="lazy" decoding="async">
+          <figure style="flex:1.773 1 408px">
+            <img src="/images/portfolio/prog-stadio-cover.jpg" width="812" height="458" alt="Portada de la presentaci&oacute;n del plan de negocio para un nuevo estadio" loading="lazy" decoding="async">
             <figcaption>La propuesta de estadio en propiedad</figcaption>
           </figure>
-          <figure>
-            <img src="/images/portfolio/prog-stadio-analisi.jpg" alt="Diapositiva con el an&aacute;lisis de riesgos y la matriz DAFO del proyecto" loading="lazy" decoding="async">
+          <figure style="flex:1.903 1 438px">
+            <img src="/images/portfolio/prog-stadio-analisi.jpg" width="807" height="424" alt="Diapositiva con el an&aacute;lisis de riesgos y la matriz DAFO del proyecto" loading="lazy" decoding="async">
             <figcaption>An&aacute;lisis de riesgos y matriz DAFO</figcaption>
           </figure>
         </div>
