@@ -423,6 +423,24 @@
     color:var(--ink);
   }
 
+
+  .work-more{
+    text-align:center;
+    margin-top:56px;
+  }
+  .work-more a{
+    display:inline-block;
+    font-family:'Inter', sans-serif;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:var(--ink);
+    border-bottom:1px solid var(--ink);
+    padding-bottom:7px;
+    transition:opacity 0.25s ease;
+  }
+  .work-more a:hover{ opacity:0.55; }
+
   /* ---------- JOURNEY & PROJECTS SECTIONS ---------- */
   #journey, #projects{
     position:relative;
@@ -787,6 +805,7 @@
   <header id="site-header">
     <div class="brand">DANILO BUONPENSIERO</div>
     <div class="nav-group">
+      <a class="nav-contact" href="/portfolio/">PORTFOLIO</a>
       <a class="nav-contact" href="#contact">CONTATTI</a>
       <div class="lang-switch-group">
         <span aria-current="true">IT</span>
@@ -960,6 +979,8 @@
         <p class="card-description">Copertura editoriale quotidiana sul Palermo FC: news, interviste, cronache pre/post-partita, presenza diretta a conferenze stampa e partite ufficiali.</p>
       </div>
     </div>
+
+    <div class="work-more"><a href="/portfolio/">Vedi il portfolio completo &rarr;</a></div>
   </section>
 
   <section id="journey">

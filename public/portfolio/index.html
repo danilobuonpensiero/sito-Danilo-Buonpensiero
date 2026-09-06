@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Danilo Buonpensiero</title>
+<meta name="description" content="Il portfolio esteso di Danilo Buonpensiero: social media, ufficio stampa, contenuti editoriali, produzione video e piattaforme OTT, con risultati e materiali di ogni esperienza.">
+<link rel="canonical" href="https://www.danilobuonpensiero.com/portfolio/">
+<meta name="theme-color" content="#EDE4D3">
+
+<link rel="alternate" hreflang="it" href="https://www.danilobuonpensiero.com/portfolio/">
+<link rel="alternate" hreflang="en" href="https://www.danilobuonpensiero.com/en/portfolio/">
+<link rel="alternate" hreflang="es" href="https://www.danilobuonpensiero.com/es/portfolio/">
+<link rel="alternate" hreflang="x-default" href="https://www.danilobuonpensiero.com/portfolio/">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.danilobuonpensiero.com/portfolio/">
+<meta property="og:title" content="Portfolio | Danilo Buonpensiero">
+<meta property="og:description" content="Il portfolio esteso di Danilo Buonpensiero: social media, ufficio stampa, contenuti editoriali, produzione video e piattaforme OTT, con risultati e materiali di ogni esperienza.">
+<meta property="og:image" content="https://www.danilobuonpensiero.com/danilo.jpg">
+<meta property="og:locale" content="it_IT">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portfolio | Danilo Buonpensiero">
+<meta name="twitter:description" content="Il portfolio esteso di Danilo Buonpensiero: social media, ufficio stampa, contenuti editoriali, produzione video e piattaforme OTT, con risultati e materiali di ogni esperienza.">
+<meta name="twitter:image" content="https://www.danilobuonpensiero.com/danilo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+
+<style>
+  :root{
+    --bg:#EDE4D3;
+    --bg-soft:#F5EFE3;
+    --ink:#0A0A0A;
+    --yellow:#FFE500;
+    --green:#6FBF73;
+    --ink-60: rgba(10,10,10,0.6);
+    --ink-40: rgba(10,10,10,0.4);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  html, body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    width:100%;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  /* ---------- HEADER ---------- */
+  #site-header{
+    position:sticky;
+    top:0;
+    height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 40px;
+    background:var(--bg);
+    border-bottom:1px solid rgba(10,10,10,0.1);
+    z-index:200;
+  }
+
+  #site-header .brand{
+    font-family:'Cormorant Garamond', serif;
+    font-size:18px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+  .brand-short{ display:none; }
+
+  .nav-group{ display:flex; align-items:center; gap:24px; }
+
+  #site-header .nav-link{
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:var(--ink-60);
+    transition:color 0.25s ease;
+  }
+  #site-header .nav-link:hover{ color:var(--ink); }
+
+  .lang-switch-group{ display:flex; align-items:center; gap:12px; }
+  .lang-switch-group a,
+  .lang-switch-group span{
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    transition:color 0.25s ease;
+  }
+  .lang-switch-group a{ color:var(--ink-60); }
+  .lang-switch-group a:hover{ color:var(--ink); }
+  .lang-switch-group span{ color:var(--ink); font-weight:600; }
+
+  /* ---------- PAGE HERO ---------- */
+  #page-hero{
+    padding:120px 60px 90px;
+    max-width:1320px;
+    margin:0 auto;
+  }
+
+  .page-eyebrow{
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:var(--ink-60);
+    margin-bottom:22px;
+  }
+
+  .page-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:68px;
+    font-weight:500;
+    line-height:1.05;
+    margin-bottom:32px;
+  }
+
+  .page-lead{
+    font-family:'Inter', sans-serif;
+    font-size:17px;
+    line-height:1.7;
+    color:rgba(10,10,10,0.75);
+    max-width:620px;
+  }
+
+  .page-index{
+    margin-top:56px;
+    padding-top:32px;
+    border-top:1px solid rgba(10,10,10,0.15);
+  }
+  .page-index-label{
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:var(--ink-40);
+    margin-bottom:18px;
+  }
+  .page-index-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px 28px;
+  }
+  .page-index-links a{
+    font-family:'Inter', sans-serif;
+    font-size:13px;
+    color:var(--ink-60);
+    border-bottom:1px solid transparent;
+    transition:color 0.25s ease, border-color 0.25s ease;
+  }
+  .page-index-links a:hover{ color:var(--ink); border-bottom-color:var(--ink); }
+  .page-index-links .idx-num{ color:var(--ink-40); margin-right:6px; }
+
+  /* ---------- SECTOR ---------- */
+  .sector{ padding:0 60px 40px; }
+  .sector-inner{
+    max-width:1200px;
+    margin:0 auto;
+    border-top:1px solid rgba(10,10,10,0.15);
+  }
+
+  .sector-head{
+    padding:90px 0 64px;
+    max-width:720px;
+  }
+
+  .sector-num{
+    font-family:'Cormorant Garamond', serif;
+    font-size:15px;
+    letter-spacing:2px;
+    color:var(--ink-40);
+    margin-bottom:16px;
+  }
+
+  .sector-accent{ width:40px; height:3px; margin-bottom:26px; }
+  .accent-yellow .sector-accent{ background:var(--yellow); }
+  .accent-green .sector-accent{ background:var(--green); }
+
+  .sector-eyebrow{
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:var(--ink-60);
+    margin-bottom:18px;
+  }
+
+  .sector-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:44px;
+    font-weight:500;
+    line-height:1.1;
+    margin-bottom:24px;
+  }
+
+  .sector-intro{
+    font-family:'Inter', sans-serif;
+    font-size:15px;
+    line-height:1.7;
+    color:rgba(10,10,10,0.7);
+  }
+
+  /* ---------- CASE ---------- */
+  .case{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    gap:64px;
+    padding-bottom:72px;
+    margin-bottom:72px;
+    border-bottom:1px solid rgba(10,10,10,0.08);
+  }
+  .case:last-child{ border-bottom:none; margin-bottom:0; padding-bottom:24px; }
+
+  .case-head{ position:sticky; top:96px; align-self:start; }
+
+  .case-client{
+    font-family:'Cormorant Garamond', serif;
+    font-size:29px;
+    font-weight:500;
+    line-height:1.15;
+    margin-bottom:12px;
+  }
+  .case-role{
+    font-family:'Inter', sans-serif;
+    font-size:12px;
+    line-height:1.5;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+    color:var(--ink-60);
+    margin-bottom:14px;
+  }
+  .case-period{
+    font-family:'Inter', sans-serif;
+    font-size:12px;
+    color:var(--ink-40);
+  }
+
+  .case-label{
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:var(--ink-60);
+    margin-bottom:18px;
+  }
+
+  .case-list{ list-style:none; margin-bottom:44px; }
+  .case-list li{
+    position:relative;
+    padding-left:24px;
+    margin-bottom:15px;
+    font-size:15px;
+    line-height:1.7;
+    color:rgba(10,10,10,0.78);
+  }
+  .case-list li::before{
+    content:'';
+    position:absolute;
+    left:0;
+    top:12px;
+    width:10px;
+    height:1px;
+    background:var(--ink-40);
+  }
+
+  .metrics{
+    display:flex;
+    flex-wrap:wrap;
+    gap:36px 48px;
+    margin-bottom:48px;
+  }
+  .metric-num{
+    display:block;
+    font-family:'Cormorant Garamond', serif;
+    font-size:40px;
+    font-weight:500;
+    line-height:1;
+    margin-bottom:8px;
+  }
+  .metric-label{
+    display:block;
+    font-family:'Inter', sans-serif;
+    font-size:12px;
+    line-height:1.5;
+    color:var(--ink-60);
+    max-width:190px;
+  }
+
+  .case-gallery{
+    columns:210px;
+    column-gap:16px;
+  }
+  .case-gallery figure{
+    break-inside:avoid;
+    margin:0 0 20px;
+  }
+  .case-gallery img{
+    display:block;
+    width:100%;
+    height:auto;
+    background:var(--bg-soft);
+    border:1px solid rgba(10,10,10,0.1);
+  }
+  .case-gallery figcaption{
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    line-height:1.5;
+    color:var(--ink-60);
+    margin-top:9px;
+  }
+
+  /* ---------- CTA ---------- */
+  #page-cta{
+    background:var(--ink);
+    color:var(--bg);
+    padding:110px 60px;
+    margin-top:80px;
+    text-align:center;
+  }
+  .cta-title{
+    font-family:'Cormorant Garamond', serif;
+    font-size:44px;
+    font-weight:500;
+    margin-bottom:18px;
+  }
+  .cta-text{
+    font-family:'Inter', sans-serif;
+    font-size:15px;
+    line-height:1.7;
+    color:rgba(237,228,211,0.7);
+    max-width:520px;
+    margin:0 auto 40px;
+  }
+  .cta-actions{ display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+  .btn-solid, .btn-ghost{
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    padding:16px 32px;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+  .btn-solid{ background:var(--yellow); color:var(--ink); }
+  .btn-solid:hover{ background:var(--bg); }
+  .btn-ghost{ border:1px solid rgba(237,228,211,0.35); color:var(--bg); }
+  .btn-ghost:hover{ background:rgba(237,228,211,0.1); }
+
+  /* ---------- FOOTER ---------- */
+  #site-footer{
+    background:var(--ink);
+    padding:0 60px 56px;
+  }
+  .footer-links{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    max-width:900px;
+    margin:0 auto;
+    padding-top:40px;
+    border-top:1px solid rgba(237,228,211,0.12);
+    font-family:'Inter', sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:rgba(237,228,211,0.45);
+    flex-wrap:wrap;
+  }
+  .footer-links a{ transition:color 0.25s ease; }
+  .footer-links a:hover{ color:var(--yellow); }
+
+  @media (max-width:760px){
+    .brand-full{ display:none; }
+    .brand-short{ display:inline; }
+    .nav-group{ gap:16px; }
+    #site-header .nav-link{ font-size:10px; letter-spacing:1.2px; }
+    .lang-switch-group{ gap:9px; }
+    .lang-switch-group a,
+    .lang-switch-group span{ font-size:10px; letter-spacing:1.2px; }
+  }
+
+  @media (max-width:900px){
+    #site-header{ padding:0 24px; }
+    #page-hero{ padding:64px 24px 56px; }
+    .page-title{ font-size:42px; }
+    .page-lead{ font-size:16px; }
+    .sector{ padding:0 24px 24px; }
+    .sector-head{ padding:64px 0 44px; }
+    .sector-title{ font-size:32px; }
+    .case{ grid-template-columns:1fr; gap:32px; }
+    .case-head{ position:static; }
+    .case-client{ font-size:26px; }
+    .metric-num{ font-size:34px; }
+    #page-cta{ padding:80px 24px; }
+    .cta-title{ font-size:34px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+  <header id="site-header">
+    <a class="brand" href="/"><span class="brand-full">Danilo Buonpensiero</span><span class="brand-short">DB</span></a>
+    <div class="nav-group">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="/#contact">Contatti</a>
+      <div class="lang-switch-group">
+        <span aria-current="true">IT</span>
+        <a href="/en/portfolio/" hreflang="en">EN</a>
+        <a href="/es/portfolio/" hreflang="es">ES</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="page-hero">
+      <div class="page-eyebrow">Portfolio</div>
+      <h1 class="page-title">Il lavoro, nel dettaglio.</h1>
+      <p class="page-lead">Ogni esperienza raccontata per quello che &egrave; stata: cosa ho fatto concretamente, con quali strumenti e con quali risultati. Diviso per area di lavoro, con i materiali prodotti sul campo.</p>
+
+      <nav class="page-index">
+        <div class="page-index-label">In questa pagina</div>
+        <div class="page-index-links">
+        <a href="#social"><span class="idx-num">01</span>Social media & community</a>
+        <a href="#pr"><span class="idx-num">02</span>Comunicazione & ufficio stampa</a>
+        <a href="#editoriale"><span class="idx-num">03</span>Contenuti editoriali & SEO</a>
+        <a href="#video"><span class="idx-num">04</span>Produzione video</a>
+        <a href="#ott"><span class="idx-num">05</span>Streaming & piattaforme OTT</a>
+        <a href="#creator"><span class="idx-num">06</span>Personal brand & creator</a>
+        </div>
+      </nav>
+    </section>
+
+  <section class="sector accent-yellow" id="social">
+    <div class="sector-inner">
+      <div class="sector-head">
+        <div class="sector-num">01</div>
+        <div class="sector-accent"></div>
+        <div class="sector-eyebrow">Social media & community</div>
+        <h2 class="sector-title">Costruire community, non solo pubblicare.</h2>
+        <p class="sector-intro">La gestione quotidiana di canali con centinaia di migliaia di persone dall&rsquo;altra parte: format, calendario, produzione video nativa e dialogo diretto con la community.</p>
+      </div>
+      <article class="case">
+        <div class="case-head">
+          <div class="case-client">Pianeta Serie B</div>
+          <div class="case-role">Social Media &amp; Community Manager</div>
+          <div class="case-period">Feb 2023 &rarr; oggi</div>
+        </div>
+        <div class="case-body">
+          <div class="case-label">Cosa ho fatto</div>
+          <ul class="case-list">
+          <li>Ideazione dei format e gestione del calendario editoriale su Instagram, Facebook e TikTok.</li>
+          <li>Ridefinizione della linea editoriale in chiave infotainment da ottobre 2024, adattando trend e linguaggi delle piattaforme al target della Serie B.</li>
+          <li>Produzione di contenuti video nativi &mdash; reel, clip e short-form &mdash; girati e montati dal vivo durante gli eventi, con Adobe Premiere, CapCut e Canva.</li>
+          <li>Community management quotidiano: moderazione di commenti e DM, dialogo con tifosi, calciatori e addetti ai lavori.</li>
+          <li>Analisi delle performance con Instagram Insights e Meta Business Suite, con adattamento continuo dei format sui dati raccolti.</li>
+          </ul>
+        <div class="case-label">Risultati</div>
+        <div class="metrics">
+          <div class="metric"><span class="metric-num">+40.000</span><span class="metric-label">follower organici acquisiti su tutte le piattaforme</span></div>
+          <div class="metric"><span class="metric-num">10,26%</span><span class="metric-label">engagement rate, +786% rispetto alla media di categoria</span></div>
+          <div class="metric"><span class="metric-num">2,5 MLN</span><span class="metric-label">visualizzazioni sul contenuto pi&ugrave; performante</span></div>
+          <div class="metric"><span class="metric-num">+70%</span><span class="metric-label">account raggiunti rispetto al periodo precedente</span></div>
+        </div>
+
+        <div class="case-gallery">
+          <figure>
+            <img src="/images/portfolio/psb-instagram-profilo.jpg" alt="Il profilo Instagram di Pianeta Serie B" loading="lazy" decoding="async">
+            <figcaption>Il profilo Instagram di Pianeta Serie B</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/psb-analytics-engagement.jpg" alt="Engagement rate al 10,26%: +786% rispetto alla media" loading="lazy" decoding="async">
+            <figcaption>Engagement rate al 10,26%: +786% rispetto alla media</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/psb-reel-views.jpg" alt="Reel dai 9.000 ai 2,5 milioni di visualizzazioni" loading="lazy" decoding="async">
+            <figcaption>Reel dai 9.000 ai 2,5 milioni di visualizzazioni</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/psb-post-insigne.jpg" alt="Uno dei format editoriali ricorrenti" loading="lazy" decoding="async">
+            <figcaption>Uno dei format editoriali ricorrenti</figcaption>
+          </figure>
+        </div>
+
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="sector accent-green" id="pr">
+    <div class="sector-inner">
+      <div class="sector-head">
+        <div class="sector-num">02</div>
+        <div class="sector-accent"></div>
+        <div class="sector-eyebrow">Comunicazione & ufficio stampa</div>
+        <h2 class="sector-title">Media relations, dall&rsquo;accredito alla rassegna.</h2>
+        <p class="sector-intro">Il lavoro di ufficio stampa vero: rapporti con le testate, comunicati, accrediti e la costruzione della narrazione ufficiale di un progetto internazionale in Italia.</p>
+      </div>
+      <article class="case">
+        <div class="case-head">
+          <div class="case-client">Kings League Italia</div>
+          <div class="case-role">Communications Specialist</div>
+          <div class="case-period">Dic 2024 &rarr; Lug 2025</div>
+        </div>
+        <div class="case-body">
+          <div class="case-label">Cosa ho fatto</div>
+          <ul class="case-list">
+          <li>Gestione dell&rsquo;ufficio stampa italiano: comunicati, media relations, accrediti e rapporti con le testate nazionali.</li>
+          <li>Monitoraggio della rassegna stampa per misurare impatto e visibilit&agrave; del format sui media italiani.</li>
+          <li>Sviluppo del piano editoriale del sito ufficiale &mdash; il primo in lingua italiana &mdash; tra approfondimenti, riepiloghi e interviste esclusive ai protagonisti.</li>
+          <li>Ideazione e gestione di strategie di influencer marketing con talent digitali e community online.</li>
+          <li>Produzione e montaggio video per la copertura live degli eventi, incluse le European Finals all&rsquo;Inalpi Arena di Torino.</li>
+          </ul>
+        <div class="case-label">Risultati</div>
+        <div class="metrics">
+          <div class="metric"><span class="metric-num">+500</span><span class="metric-label">menzioni su media nazionali e internazionali in 7 mesi</span></div>
+          <div class="metric"><span class="metric-num">1&deg;</span><span class="metric-label">piano editoriale italiano del sito ufficiale</span></div>
+        </div>
+
+        <div class="case-gallery">
+          <figure>
+            <img src="/images/portfolio/kl-inalpi-arena-campo.jpg" alt="European Finals, Inalpi Arena di Torino &mdash; 22 maggio 2025" loading="lazy" decoding="async">
+            <figcaption>European Finals, Inalpi Arena di Torino &mdash; 22 maggio 2025</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/kl-backdrop-finals.jpg" alt="Il backdrop stampa delle European Finals" loading="lazy" decoding="async">
+            <figcaption>Il backdrop stampa delle European Finals</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/kl-mixed-zone.jpg" alt="Mixed zone e interviste ai protagonisti" loading="lazy" decoding="async">
+            <figcaption>Mixed zone e interviste ai protagonisti</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/kl-arena-pubblico.jpg" alt="L&rsquo;arena durante la finale" loading="lazy" decoding="async">
+            <figcaption>L&rsquo;arena durante la finale</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/kl-sito-editoriale.jpg" alt="Il sito ufficiale italiano, con il piano editoriale che ho impostato" loading="lazy" decoding="async">
+            <figcaption>Il sito ufficiale italiano, con il piano editoriale che ho impostato</figcaption>
+          </figure>
+        </div>
+
+        </div>
+      </article>
+      <article class="case">
+        <div class="case-head">
+          <div class="case-client">Copertura dal campo</div>
+          <div class="case-role">Serie A e Serie B</div>
+          <div class="case-period">2017 &rarr; oggi</div>
+        </div>
+        <div class="case-body">
+          <div class="case-label">Cosa ho fatto</div>
+          <ul class="case-list">
+          <li>Accrediti e presenza diretta a conferenze stampa, presentazioni e partite ufficiali.</li>
+          <li>Interviste e cronache pre e post partita realizzate dalle sale stampa e dalle tribune di Serie A e Serie B.</li>
+          <li>Rapporto continuativo con uffici stampa dei club e colleghi delle altre testate.</li>
+          </ul>
+        <div class="case-gallery">
+          <figure>
+            <img src="/images/portfolio/pass-stampa.jpg" alt="Accredito e distinta di gara, Serie A" loading="lazy" decoding="async">
+            <figcaption>Accredito e distinta di gara, Serie A</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/conferenza-stampa.jpg" alt="Conferenza stampa post partita" loading="lazy" decoding="async">
+            <figcaption>Conferenza stampa post partita</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/tribuna-stampa-stadium.jpg" alt="Tribuna stampa, Allianz Stadium" loading="lazy" decoding="async">
+            <figcaption>Tribuna stampa, Allianz Stadium</figcaption>
+          </figure>
+        </div>
+
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="sector accent-yellow" id="editoriale">
+    <div class="sector-inner">
+      <div class="sector-head">
+        <div class="sector-num">03</div>
+        <div class="sector-accent"></div>
+        <div class="sector-eyebrow">Contenuti editoriali & SEO</div>
+        <h2 class="sector-title">Nove anni di produzione quotidiana.</h2>
+        <p class="sector-intro">Dalla notizia alla sua distribuzione: scrittura, verifica, pubblicazione e ottimizzazione, su testate con pubblici e ritmi diversi.</p>
+      </div>
+      <article class="case">
+        <div class="case-head">
+          <div class="case-client">Pianeta Serie B</div>
+          <div class="case-role">Content Editor</div>
+          <div class="case-period">Lug 2017 &rarr; oggi</div>
+        </div>
+        <div class="case-body">
+          <div class="case-label">Cosa ho fatto</div>
+          <ul class="case-list">
+          <li>Produzione continuativa di articoli, interviste e reportage sul campionato di Serie B.</li>
+          <li>Copertura diretta di eventi dal vivo: conferenze stampa, presentazioni e incontri ufficiali.</li>
+          <li>Gestione autonoma del workflow su WordPress, dalla redazione alla pubblicazione e manutenzione dei contenuti.</li>
+          <li>Ottimizzazione SEO e GEO su ogni contenuto: ricerca dell&rsquo;intent, titolazione, struttura e linking interno.</li>
+          </ul>
+        <div class="case-gallery">
+          <figure>
+            <img src="/images/portfolio/psb-articolo-gomes.jpg" alt="Approfondimento tattico su Pianeta Serie B" loading="lazy" decoding="async">
+            <figcaption>Approfondimento tattico su Pianeta Serie B</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/psb-intervista-esclusiva.jpg" alt="Intervista esclusiva a un protagonista del campionato" loading="lazy" decoding="async">
+            <figcaption>Intervista esclusiva a un protagonista del campionato</figcaption>
+          </figure>
+        </div>
+
+        </div>
+      </article>
+      <article class="case">
+        <div class="case-head">
+          <div class="case-client">Pianeta Champions</div>
+          <div class="case-role">Content Editor UEFA &middot; in partnership con OneFootball</div>
+          <div class="case-period">Nov 2023 &rarr; oggi</div>
+        </div>
+        <div class="case-body">
+          <div class="case-label">Cosa ho fatto</div>
+          <ul class="case-list">
+          <li>Redazione e revisione di contenuti sul calcio europeo e sulle principali competizioni UEFA.</li>
+          <li>Pubblicazione quotidiana su WordPress, curando accuratezza, coerenza e tempestivit&agrave; degli aggiornamenti.</li>
+          <li>Coordinamento con il team social per la coerenza cross-channel, adattando headline e formati alla distribuzione.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="case">
+        <div class="case-head">
+          <div class="case-client">I Love Palermo Calcio</div>
+          <div class="case-role">Digital Content Editor &middot; Palermo FC</div>
+          <div class="case-period">Lug 2018 &rarr; Set 2021</div>
+        </div>
+        <div class="case-body">
+          <div class="case-label">Cosa ho fatto</div>
+          <ul class="case-list">
+          <li>Copertura editoriale quotidiana sul Palermo FC, con taglio digitale e orientamento alla community.</li>
+          <li>Articoli, interviste e cronache pre e post partita, con presenza diretta a conferenze e gare ufficiali.</li>
+          <li>Pubblicazione e gestione dei contenuti su WordPress e distribuzione multicanale con il team social.</li>
+          </ul>
+        <div class="case-gallery">
+          <figure>
+            <img src="/images/portfolio/ilpc-intervista-lazaar.jpg" alt="Intervista esclusiva pubblicata sul portale" loading="lazy" decoding="async">
+            <figcaption>Intervista esclusiva pubblicata sul portale</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/ilpc-video-intervista.jpg" alt="Video-intervista realizzata a bordo campo" loading="lazy" decoding="async">
+            <figcaption>Video-intervista realizzata a bordo campo</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/ilpc-articolo-cartaceo.jpg" alt="Un pezzo ripreso anche dalla carta stampata" loading="lazy" decoding="async">
+            <figcaption>Un pezzo ripreso anche dalla carta stampata</figcaption>
+          </figure>
+        </div>
+
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="sector accent-green" id="video">
+    <div class="sector-inner">
+      <div class="sector-head">
+        <div class="sector-num">04</div>
+        <div class="sector-accent"></div>
+        <div class="sector-eyebrow">Produzione video</div>
+        <h2 class="sector-title">Dalla ripresa alla consegna.</h2>
+        <p class="sector-intro">Riprese in campo, montaggio e preparazione dei materiali per la distribuzione online e televisiva, con il workflow gestito per intero.</p>
+      </div>
+      <article class="case">
+        <div class="case-head">
+          <div class="case-client">LGI Sport</div>
+          <div class="case-role">Content Producer &middot; settore giovanile Palermo</div>
+          <div class="case-period">Ott 2023 &rarr; Ott 2024</div>
+        </div>
+        <div class="case-body">
+          <div class="case-label">Cosa ho fatto</div>
+          <ul class="case-list">
+          <li>Riprese integrali delle gare del settore giovanile: Primavera, U17, U16 e U15.</li>
+          <li>Montaggio e post-produzione di highlights, clip e short-form, dalla ripresa all&rsquo;export finale.</li>
+          <li>Preparazione e consegna dei materiali per la distribuzione online e TV: formati, versioni, naming e catalogazione.</li>
+          <li>Coordinamento con team editoriale e tecnico su brief, scalette, tempistiche e standard di produzione.</li>
+          </ul>
+        <div class="case-gallery">
+          <figure>
+            <img src="/images/portfolio/lgi-camera-campo.jpg" alt="Setup di ripresa a bordo campo" loading="lazy" decoding="async">
+            <figcaption>Setup di ripresa a bordo campo</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/lgi-primavera-palermo.jpg" alt="Primavera del Palermo, una delle gare riprese" loading="lazy" decoding="async">
+            <figcaption>Primavera del Palermo, una delle gare riprese</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/lgi-highlights-youtube.jpg" alt="Highlights montati e pubblicati sul canale ufficiale" loading="lazy" decoding="async">
+            <figcaption>Highlights montati e pubblicati sul canale ufficiale</figcaption>
+          </figure>
+        </div>
+
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="sector accent-yellow" id="ott">
+    <div class="sector-inner">
+      <div class="sector-head">
+        <div class="sector-num">05</div>
+        <div class="sector-accent"></div>
+        <div class="sector-eyebrow">Streaming & piattaforme OTT</div>
+        <h2 class="sector-title">Contenuti pensati per una piattaforma.</h2>
+        <p class="sector-intro">Un contesto diverso dall&rsquo;editoria: qui il contenuto vive dentro un catalogo, e va reso trovabile, coerente e appetibile.</p>
+      </div>
+      <article class="case">
+        <div class="case-head">
+          <div class="case-client">Gruppo Mediaset</div>
+          <div class="case-role">Streaming Content Editor &middot; Infinity+</div>
+          <div class="case-period">Gen 2022 &rarr; Lug 2022</div>
+        </div>
+        <div class="case-body">
+          <div class="case-label">Cosa ho fatto</div>
+          <ul class="case-list">
+          <li>Supporto allo sviluppo di strategie editoriali e promozionali per i contenuti Infinity+, con il team Marketing &amp; Comunicazione.</li>
+          <li>Pianificazione editoriale dei contenuti UEFA Champions League e coordinamento operativo con creator e fornitori esterni.</li>
+          <li>Cura dell&rsquo;esperienza in piattaforma: metadata, schede contenuto e collection tematiche, con copy adattati a target diversi.</li>
+          <li>Monitoraggio dell&rsquo;engagement durante le campagne sui canali esterni e ottimizzazione dei contenuti sulla base dei dati.</li>
+          </ul>
+        <div class="case-gallery">
+          <figure>
+            <img src="/images/portfolio/mediaset-infinity.jpg" alt="La piattaforma Infinity+" loading="lazy" decoding="async">
+            <figcaption>La piattaforma Infinity+</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/mediaset-sede.jpg" alt="Cologno Monzese, la sede del gruppo" loading="lazy" decoding="async">
+            <figcaption>Cologno Monzese, la sede del gruppo</figcaption>
+          </figure>
+        </div>
+
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="sector accent-green" id="creator">
+    <div class="sector-inner">
+      <div class="sector-head">
+        <div class="sector-num">06</div>
+        <div class="sector-accent"></div>
+        <div class="sector-eyebrow">Personal brand & creator</div>
+        <h2 class="sector-title">Gli stessi strumenti, sul mio profilo.</h2>
+        <p class="sector-intro">Analisi e approfondimenti sul business dello sport pubblicati a mio nome, dove sperimento format e linguaggi prima di portarli sui canali dei clienti.</p>
+      </div>
+      <article class="case">
+        <div class="case-head">
+          <div class="case-client">Contenuti a mio nome</div>
+          <div class="case-role">LinkedIn &middot; Instagram &middot; TikTok</div>
+          <div class="case-period">In corso</div>
+        </div>
+        <div class="case-body">
+          <div class="case-label">Cosa ho fatto</div>
+          <ul class="case-list">
+          <li>Caroselli e video verticali di analisi su sponsorship, diritti media e fenomeni emergenti del calcio.</li>
+          <li>Format ricorrenti costruiti sugli stessi criteri editoriali che applico ai canali dei clienti.</li>
+          <li>Scrittura, grafica e montaggio curati interamente in autonomia.</li>
+          </ul>
+        <div class="case-label">Risultati</div>
+        <div class="metrics">
+          <div class="metric"><span class="metric-num">2.924</span><span class="metric-label">follower sul profilo personale</span></div>
+          <div class="metric"><span class="metric-num">49.213</span><span class="metric-label">&laquo;mi piace&raquo; raccolti sui contenuti</span></div>
+        </div>
+
+        <div class="case-gallery">
+          <figure>
+            <img src="/images/portfolio/creator-profilo.jpg" alt="Il profilo personale e i contenuti pubblicati" loading="lazy" decoding="async">
+            <figcaption>Il profilo personale e i contenuti pubblicati</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/creator-carosello-fantacalcio.jpg" alt="Carosello di analisi sul fantacalcio nelle leghe minori" loading="lazy" decoding="async">
+            <figcaption>Carosello di analisi sul fantacalcio nelle leghe minori</figcaption>
+          </figure>
+          <figure>
+            <img src="/images/portfolio/creator-carosello-redbull.jpg" alt="Approfondimento sul modello Red Bull in Serie A" loading="lazy" decoding="async">
+            <figcaption>Approfondimento sul modello Red Bull in Serie A</figcaption>
+          </figure>
+        </div>
+
+        </div>
+      </article>
+    </div>
+  </section>
+
+    <section id="page-cta">
+      <h2 class="cta-title">Parliamone.</h2>
+      <p class="cta-text">Se una di queste aree &egrave; quella che ti serve, scrivimi.</p>
+      <div class="cta-actions">
+        <a class="btn-solid" href="/#contact">Vai ai contatti</a>
+        <a class="btn-ghost" href="mailto:dbuonpensiero@gmail.com">Scrivimi una mail</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <div class="footer-links">
+      <a href="/">Torna alla home</a>
+      <a href="https://www.linkedin.com/in/danilo-buonpensiero/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:dbuonpensiero@gmail.com">Email</a>
+    </div>
+  </footer>
+
+</body>
+</html>

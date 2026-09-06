@@ -25,4 +25,28 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.danilobuonpensiero.com/en/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.danilobuonpensiero.com/es/"/>
   </url>
+  <url>
+    <loc>https://www.danilobuonpensiero.com/portfolio/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.danilobuonpensiero.com/portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.danilobuonpensiero.com/en/portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.danilobuonpensiero.com/es/portfolio/"/>
+  </url>
+  <url>
+    <loc>https://www.danilobuonpensiero.com/en/portfolio/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.danilobuonpensiero.com/portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.danilobuonpensiero.com/en/portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.danilobuonpensiero.com/es/portfolio/"/>
+  </url>
+  <url>
+    <loc>https://www.danilobuonpensiero.com/es/portfolio/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.danilobuonpensiero.com/portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.danilobuonpensiero.com/en/portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.danilobuonpensiero.com/es/portfolio/"/>
+  </url>
 </urlset>
